@@ -45,6 +45,11 @@
     &quot;last_opened_file_path&quot;: &quot;D:/semester 4/Grafika Komputer/uas/UAS_PROJECTGRAFKOM&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Engine" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />

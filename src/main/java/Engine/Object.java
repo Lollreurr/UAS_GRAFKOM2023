@@ -110,7 +110,7 @@ public class Object extends ShaderProgram{
                 "view", camera.getViewMatrix());
         uniformsMap.setUniform(
                 "projection", projection.getProjMatrix());
-        uniformsMap.setUniform("dirLight.direction", new Vector3f(-0.2f, -1.0f, -0.3f));
+        uniformsMap.setUniform("dirLight.direction", new Vector3f(-0.2f, 1.0f, 0.3f));
         if(scene){
             uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.1f, 0.1f, 0.1f));
         } else {
