@@ -170,17 +170,23 @@ public class Main {
             window.getMouseInput().setScroll(new Vector2f());
         }
 
+
         temp = objects.get(0).getCenterPoint();
         angle = angle % (float) Math.toRadians(360);
+        float move = 1f;
 
-        if (window.isKeyPressed(GLFW_KEY_L) && !delay2) {
-            malam = !malam;
-            for (Object object : objects) {
-                object.setScene(malam);
-                for (Object objectChild : object.getChildObject()) {
-                    objectChild.setScene(malam);
-                }
-            }
+        if (window.isKeyPressed(GLFW_KEY_I)){
+            camera.moveForward(move);
+        }
+        else if (window.isKeyPressed(GLFW_KEY_K)){
+            camera.moveBackwards(move);
+        }
+
+        if (window.isKeyPressed(GLFW_KEY_J)){
+            camera.moveLeft(move);
+        }
+        else if (window.isKeyPressed(GLFW_KEY_L)) {
+            camera.moveRight(move);
         }
 
         if (window.isKeyPressed(GLFW_KEY_W)){
