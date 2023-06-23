@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9cf18ad-59f1-4536-ae66-ba4c0c3aa23f" name="Changes" comment="init" />
+    <list default="true" id="a9cf18ad-59f1-4536-ae66-ba4c0c3aa23f" name="Changes" comment="init">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/shaders/scene.frag" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/scene.frag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/shaders/scene.vert" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/scene.vert" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Object.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/UniformsMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/UniformsMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+    </list>
     <list id="e726a96f-a44b-4caf-8edb-925eae334d49" name="Changes by Raphael EV" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,18 +50,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "last_opened_file_path": "C:/Users/Clement/OneDrive/Documents/GitHub/UAS_GRAFKOM2023/resources/model"
+    "last_opened_file_path": "D:/semester 4/Grafika Komputer/uas/UAS_PROJECTGRAFKOM"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Clement\OneDrive\Documents\GitHub\UAS_GRAFKOM2023\resources\model" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Clement\OneDrive\Documents\GitHub\UAS_GRAFKOM2023\resources\model" />
-      <recent name="C:\Users\Clement\OneDrive\Documents\GitHub\UAS_GRAFKOM2023\resources\model\files" />
-    </key>
-  </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />

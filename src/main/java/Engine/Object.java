@@ -45,40 +45,7 @@ public class Object extends ShaderProgram{
             , Vector4f color) {
         super(shaderModuleDataList);
         this.vertices = vertices;
-//        setupVAOVBO();
-        uniformsMap = new UniformsMap(getProgramId());
-        uniformsMap.createUniform(
-                "uni_color");
-        uniformsMap.createUniform(
-                "model");
-        uniformsMap.createUniform(
-                "projection");
-        uniformsMap.createUniform(
-                "view");
-        uniformsMap.createUniform("dirLight.direction");
-        uniformsMap.createUniform("dirLight.ambient");
-        uniformsMap.createUniform("dirLight.diffuse");
-        uniformsMap.createUniform("dirLight.specular");
-        for(int i = 0; i < 4; i++){
-            uniformsMap.createUniform("pointLight["+i+"].position");
-            uniformsMap.createUniform("pointLight["+i+"].ambient");
-            uniformsMap.createUniform("pointLight["+i+"].diffuse");
-            uniformsMap.createUniform("pointLight["+i+"].specular");
-            uniformsMap.createUniform("pointLight["+i+"].constant");
-            uniformsMap.createUniform("pointLight["+i+"].linear");
-            uniformsMap.createUniform("pointLight["+i+"].quadratic");
-        }
-        uniformsMap.createUniform("spotLight.position");
-        uniformsMap.createUniform("spotLight.direction");
-        uniformsMap.createUniform("spotLight.ambient");
-        uniformsMap.createUniform("spotLight.diffuse");
-        uniformsMap.createUniform("spotLight.specular");
-        uniformsMap.createUniform("spotLight.constant");
-        uniformsMap.createUniform("spotLight.linear");
-        uniformsMap.createUniform("spotLight.quadratic");
-        uniformsMap.createUniform("spotLight.cutOff");
-        uniformsMap.createUniform("spotLight.outerCutOff");
-        uniformsMap.createUniform("viewPos");
+
         this.color = color;
         model = new Matrix4f().identity();
         childObject = new ArrayList<>();

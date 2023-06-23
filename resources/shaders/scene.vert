@@ -1,25 +1,28 @@
 #version 330
-layout (location = 0) in vec3 position;
-layout (location = 1) in vec3 normal;
+layout (location=0) in vec3 position;
 
-uniform mat4 model;
-uniform mat4 projection;
-uniform mat4 view;
+// normal (normal sama Normal beda)
+layout (location=1) in vec3 normal;
 out vec3 Normal;
+
+// diffuse
 out vec3 FragPos;
 
-void main() {
-    gl_Position = projection * view * model * vec4(position, 1.0);
-    Normal = normalize(model * vec4(position, 1.0)).xyz;
-    FragPos = vec3(model * vec4(position, 1.0));
-}
+uniform mat4 model;
 
-//#version 330
-//layout (location = 0) in vec3 position;
-//uniform mat4 model;
-//uniform mat4 projection;
-//uniform mat4 view;
-//void main() {
-//    gl_Position = projection * view * model * vec4(position, 1.0);
-//    //    gl_Position = vec4(position, 1.0);
-//}
+// tambahan untuk projection
+uniform mat4 view;
+uniform mat4 projection;
+void main()
+{
+    //vec4(position,alpha)
+    // selalu dibalik (apa yang dilihat di internet harus dibalik)
+    // karena komputer baca dari kanan (?)
+
+    //gl_Position = model * vec4(position, 1.0);
+
+    gl_Position = projection * view * model * vec4(position, 1.0);
+
+    FragPos = vec3(model * vec4(position, 1.0));
+    Normal = normalize(model * vec4(normal, 1.0)).xyz;
+}
