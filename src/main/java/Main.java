@@ -72,8 +72,10 @@ public class Main {
                 "resources/model/Bowser/bowser.obj",
                 new Vector3f(0f,0f,0f)
         ));
-        objects.get(0).scaleObject(0.01f,0.01f,0.01f);
-        objects.get(0).translateObject(0f,0f,0f);
+        objects.get(0).scaleObject(0.4f,0.4f,0.4f);
+        objects.get(0).translateObject(-5f,-0.85f,0f);
+
+
         objects.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
@@ -93,10 +95,52 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.0f, 1.0f, 0.0f, 1.0f),
-                "resources/model/Bowser Jr/bowser2.obj",
+                "resources/model/files/mario111.obj",
                 new Vector3f(0f,0f,0f)
         ));
-        objects.get(2).scaleObject(0.1f,0.1f,0.1f);
+        objects.get(2).scaleObject(0.8f,0.8f,0.8f);
+        objects.get(2).translateObject(15f,0f,0f);
+
+
+        objects.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.0f, 1.0f, 0.0f, 1.0f),
+                "resources/model/files/mariocu.obj",
+                new Vector3f(0f,0f,0f)
+        ));
+        objects.get(3).scaleObject(0.8f,0.8f,0.8f);
+        objects.get(3).translateObject(-15f,-0.85f,0f);
+
+        objects.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.0f, 1.0f, 0.0f, 1.0f),
+                "resources/model/files/mario-sculpture.obj",
+                new Vector3f(0f,0f,0f)
+        ));
+        objects.get(4).scaleObject(0.1f,0.1f,0.1f);
+        objects.get(4).translateObject(5f,5.5f, 0f);
+
+
+        objects.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.0f, 1.0f, 0.0f, 1.0f),
+                "resources/model/Ball/ball.obj",
+                new Vector3f(0f,0f,0f)
+        ));
+        objects.get(5).scaleObject(0.6f,0.6f,0.6f);
+        objects.get(5).translateObject(25f,0.4f,0f);
 
     }
 
