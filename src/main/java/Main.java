@@ -82,6 +82,16 @@ public class Main {
         ));
         objects.get(1).translateObject(0f,-2f, 0f);
 
+        objects.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.0f, 1.0f, 0.0f, 1.0f),
+                "resources/model/Bowser Jr/bowser2.obj"
+        ));
+        objects.get(2).scaleObject(0.1f,0.1f,0.1f);
 
     }
 
@@ -96,7 +106,7 @@ public class Main {
             projection.setFOV(projection.getFOV() - (window.getMouseInput().getScroll().y * 0.1f));
             window.getMouseInput().setScroll(new Vector2f());
         }
-        
+
         temp = objects.get(0).getCenterPoint();
         angle = angle % (float) Math.toRadians(360);
 
