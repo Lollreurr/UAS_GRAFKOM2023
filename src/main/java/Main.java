@@ -71,11 +71,32 @@ public class Main {
         ));
         objects.get(0).scaleObject(0.01f,0.01f,0.01f);
         objects.get(0).translateObject(0f,0f,0f);
+        objects.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1.0f, 1.0f, 1.0f, 1.0f),
+                "resources/model/files/MStad.obj"
+        ));
+        objects.get(1).translateObject(0f,-2f, 0f);
 
 
     }
 
     public void input() {
+
+        if (window.getMouseInput().isLeftButtonPressed()){
+            Vector2f displVec = window.getMouseInput().getDisplVec();
+            camera.addRotation((float) Math.toRadians(displVec.x * 0.1f), (float) Math.toRadians(displVec.y * 0.1f));
+        }
+
+        if (window.getMouseInput().getScroll().y != 0){
+            projection.setFOV(projection.getFOV() - (window.getMouseInput().getScroll().y * 0.1f));
+            window.getMouseInput().setScroll(new Vector2f());
+        }
+        
         temp = objects.get(0).getCenterPoint();
         angle = angle % (float) Math.toRadians(360);
 

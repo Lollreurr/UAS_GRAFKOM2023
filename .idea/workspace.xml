@@ -40,6 +40,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "C:/Users/Clement/OneDrive/Documents/GitHub/UAS_GRAFKOM2023/resources/model"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Clement\OneDrive\Documents\GitHub\UAS_GRAFKOM2023\resources\model" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Clement\OneDrive\Documents\GitHub\UAS_GRAFKOM2023\resources\model" />
+      <recent name="C:\Users\Clement\OneDrive\Documents\GitHub\UAS_GRAFKOM2023\resources\model\files" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
