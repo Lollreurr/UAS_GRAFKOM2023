@@ -26,6 +26,7 @@ public class Object extends ShaderProgram{
     List<Object> childObject;
     List<Float> centerPoint;
     boolean scene = true;
+    Vector3f size;
 
     public void setScene(boolean scene) {
         this.scene = scene;
@@ -42,10 +43,44 @@ public class Object extends ShaderProgram{
 
     public Object(List<ShaderModuleData> shaderModuleDataList
             , List<Vector3f> vertices
-            , Vector4f color) {
+            , Vector4f color, Vector3f size) {
         super(shaderModuleDataList);
         this.vertices = vertices;
-
+        this.size = size;
+//        setupVAOVBO();
+        uniformsMap = new UniformsMap(getProgramId());
+        uniformsMap.createUniform(
+                "uni_color");
+        uniformsMap.createUniform(
+                "model");
+        uniformsMap.createUniform(
+                "projection");
+        uniformsMap.createUniform(
+                "view");
+        uniformsMap.createUniform("dirLight.direction");
+        uniformsMap.createUniform("dirLight.ambient");
+        uniformsMap.createUniform("dirLight.diffuse");
+        uniformsMap.createUniform("dirLight.specular");
+        for(int i = 0; i < 4; i++){
+            uniformsMap.createUniform("pointLight["+i+"].position");
+            uniformsMap.createUniform("pointLight["+i+"].ambient");
+            uniformsMap.createUniform("pointLight["+i+"].diffuse");
+            uniformsMap.createUniform("pointLight["+i+"].specular");
+            uniformsMap.createUniform("pointLight["+i+"].constant");
+            uniformsMap.createUniform("pointLight["+i+"].linear");
+            uniformsMap.createUniform("pointLight["+i+"].quadratic");
+        }
+        uniformsMap.createUniform("spotLight.position");
+        uniformsMap.createUniform("spotLight.direction");
+        uniformsMap.createUniform("spotLight.ambient");
+        uniformsMap.createUniform("spotLight.diffuse");
+        uniformsMap.createUniform("spotLight.specular");
+        uniformsMap.createUniform("spotLight.constant");
+        uniformsMap.createUniform("spotLight.linear");
+        uniformsMap.createUniform("spotLight.quadratic");
+        uniformsMap.createUniform("spotLight.cutOff");
+        uniformsMap.createUniform("spotLight.outerCutOff");
+        uniformsMap.createUniform("viewPos");
         this.color = color;
         model = new Matrix4f().identity();
         childObject = new ArrayList<>();
@@ -150,6 +185,27 @@ public class Object extends ShaderProgram{
         }
     }
 
+    public void draw_ground(Camera camera, Projection projection){
+        drawSetup(camera, projection);
+        // Draw the vertices
+        //optional
+        glLineWidth(10); //ketebalan garis
+        glPointSize(10); //besar kecil vertex
+        //wajib
+        //GL_LINES
+        //GL_LINE_STRIP
+        //GL_LINE_LOOP
+        //GL_TRIANGLES
+        //GL_TRIANGLE_FAN
+        //GL_POINT
+        glDrawArrays(GL_POLYGON,
+                0,
+                vertices.size());
+        for(Object child:childObject){
+            child.draw(camera,projection);
+        }
+    }
+
     public void translateObject(Float offsetX,Float offsetY,Float offsetZ){
         model = new Matrix4f().translate(offsetX,offsetY,offsetZ).mul(new Matrix4f(model));
         // update center point tak apus buat rotasi di tempat
@@ -177,5 +233,11 @@ public class Object extends ShaderProgram{
         for(Object child:childObject){
             child.translateObject(scaleX,scaleY,scaleZ);
         }
+    }
+
+    public void drawLine(Camera camera, Projection projection) {
+        drawSetup(camera, projection);
+        glDrawArrays(GL_LINE_LOOP, 0,
+                vertices.size());
     }
 }

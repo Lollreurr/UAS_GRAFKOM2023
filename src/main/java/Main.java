@@ -67,7 +67,8 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(1.0f, 0.0f, 0.0f, 1.0f),
-                "resources/model/Bowser/bowser.obj"
+                "resources/model/Bowser/bowser.obj",
+                new Vector3f(0f,0f,0f)
         ));
         objects.get(0).scaleObject(0.01f,0.01f,0.01f);
         objects.get(0).translateObject(0f,0f,0f);
@@ -78,7 +79,8 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(1.0f, 1.0f, 1.0f, 1.0f),
-                "resources/model/files/MStad.obj"
+                "resources/model/files/MStad.obj",
+                new Vector3f(0f,0f,0f)
         ));
         objects.get(1).translateObject(0f,-2f, 0f);
 
@@ -89,7 +91,8 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.0f, 1.0f, 0.0f, 1.0f),
-                "resources/model/Bowser Jr/bowser2.obj"
+                "resources/model/Bowser Jr/bowser2.obj",
+                new Vector3f(0f,0f,0f)
         ));
         objects.get(2).scaleObject(0.1f,0.1f,0.1f);
 
