@@ -18,18 +18,20 @@ public class Square extends Object{
     float radiusY;
     float radiusZ;
     List<Integer> index;
+    Vector3f centerPoint;
     int ibo;
 
     // shading color
     List<Vector3f> normal;
     int nbo;
 
-    public Square(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color, Vector3f centerPoint,
+    public Square(List<ShaderProgram.ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color, Vector3f centerPoint,
                   float rX, float rY, float rZ) {
-        super(shaderModuleDataList, vertices, color, new Vector3f(rX, rY, rZ));
+        super(shaderModuleDataList, vertices, color);
         this.radiusX = rX;
         this.radiusY = rY;
         this.radiusZ = rZ;
+        this.centerPoint = centerPoint;
         createBox();
         setupVAOVBO();
     }
@@ -217,57 +219,14 @@ public class Square extends Object{
 //        uniformsmap.createUniform("lightPos", new Vector3f(1.0f, 1.0f, 1.0f));
     }
 
-    public void drawSetup(Camera camera, Projection projection){
+    public void drawSetup(Camera camera, Projection projection) {
         super.drawSetup(camera, projection);
-        // Bind NBO
         glEnableVertexAttribArray(1);
         glBindBuffer(GL_ARRAY_BUFFER, nbo);
-        glVertexAttribPointer(1, 3,
-                GL_FLOAT,
+        glVertexAttribPointer(1,
+                3, GL_FLOAT,
                 false,
                 0, 0);
-//        uniformsmap.setUniform("lightColor", new Vector3f(1.0f, 1.0f, 0.0f));
-//        uniformsmap.setUniform("lightPos", new Vector3f(1.0f, 1.0f, 0.0f));
-
-        // directional light
-        uniformsMap.setUniform("dirLight.direction", new Vector3f(-0.2f, 1.0f, 0.3f));
-        uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.05f, 0.05f, 0.05f));
-        uniformsMap.setUniform("dirLight.diffuse", new Vector3f(0.4f, 0.4f, 0.4f));
-        uniformsMap.setUniform("dirLight.specular", new Vector3f(0.5f, 0.5f, 0.5f));
-
-        // posisi pointLights
-        Vector3f[] _pointLightPositions =  {
-                new Vector3f(0.7f, 0.2f, 2.0f),
-                new Vector3f(2.3f, -3.3f, -4.0f),
-                new Vector3f(-4.0f, 2.0f, -12.0f),
-                new Vector3f(0.0f, 0.0f, -3.0f)
-        };
-
-        for (int i=0; i<_pointLightPositions.length; i++){
-            uniformsMap.setUniform("pointLights["+i+"].position", _pointLightPositions[i]);
-            uniformsMap.setUniform("pointLights["+i+"].ambient", new Vector3f(0.05f, 0.05f, 0.05f));
-            uniformsMap.setUniform("pointLights["+i+"].diffuse", new Vector3f(0.8f, 0.8f, 0.8f));
-            uniformsMap.setUniform("pointLights["+i+"].specular", new Vector3f(1.0f, 1.0f, 1.0f));
-            uniformsMap.setUniform("pointLights["+i+"].constant", 1.0f);
-            uniformsMap.setUniform("pointLights["+i+"].linear", 0.09f);
-            uniformsMap.setUniform("pointLights["+i+"].quadratic", 0.032f);
-        }
-
-        //spotlight
-        uniformsMap.setUniform("spotLight.position", camera.getPosition());
-        uniformsMap.setUniform("spotLight.direction", camera.getDirection());
-        uniformsMap.setUniform("spotLight.ambient", new Vector3f(0.0f, 0.0f, 0.0f));
-        uniformsMap.setUniform("spotLight.diffuse", new Vector3f(1.0f, 1.0f, 1.0f));
-        uniformsMap.setUniform("spotLight.specular", new Vector3f(1.0f, 1.0f, 1.0f));
-        uniformsMap.setUniform("spotLight.constant", 1.0f);
-        uniformsMap.setUniform("spotLight.linear", 0.09f);
-        uniformsMap.setUniform("spotLight.quadratic", 0.032f);
-        uniformsMap.setUniform("spotLight.cutOff", (float) Math.cos(Math.toRadians(12.5f)));
-        uniformsMap.setUniform("spotLight.outerCutOff", (float) Math.cos(Math.toRadians(12.5f)));
-
-
-        uniformsMap.setUniform("viewPos", camera.getPosition());
-
     }
 
     public void setNormal(List<Vector3f> normal) {
@@ -292,5 +251,55 @@ public class Square extends Object{
         ibo = glGenBuffers();
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,ibo);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER,Utils.listoInt(index),GL_STATIC_DRAW);
+    }
+
+    public ArrayList<Boolean> checkCollision(Vector3f position, Vector3f size){
+
+        boolean xPosCol = false;
+        boolean yPosCol = false;
+        boolean zPosCol = false;
+        boolean xNegCol = false;
+        boolean yNegCol = false;
+        boolean zNegCol = false;
+
+        if ((position.x + size.x/2) >= (centerPoint.x - radiusX/2) && (position.x + size.x/2) <= (centerPoint.x + radiusX/2)) {
+            xPosCol = true;
+        }
+        if ((position.x - size.x/2) >= (centerPoint.x - radiusX/2) && (position.x - size.x/2) <= (centerPoint.x + radiusX/2)) {
+            xNegCol = true;
+        }
+        if ((position.y + size.y/2) >= (centerPoint.y - radiusY/2) && (position.y + size.y/2) <= (centerPoint.y + radiusY/2)){
+            yPosCol = true;
+        }
+        if ((position.y - size.y/2) >= (centerPoint.y - radiusY/2) && (position.y - size.y/2) <= (centerPoint.y + radiusY/2)){
+            yNegCol = true;
+        }
+        if ((position.z + size.z/2) >= (centerPoint.z - radiusZ/2) && (position.z + size.z/2) <= (centerPoint.z + radiusZ/2)){
+            zPosCol = true;
+        }
+        if ((position.z - size.z/2) >= (centerPoint.z - radiusZ/2) && (position.z - size.z/2) <= (centerPoint.z + radiusZ/2)) {
+            zNegCol = true;
+        }
+
+
+        ArrayList<Boolean> movement = new ArrayList<>();
+        if ((xPosCol || xNegCol) && (yPosCol || yNegCol) && (zPosCol || zNegCol)){
+            movement.add(true);
+        }
+        else{
+            movement.add(false);
+        }
+        movement.add(xPosCol);
+        movement.add(xNegCol);
+        movement.add(yPosCol);
+        movement.add(yNegCol);
+        movement.add(zPosCol);
+        movement.add(zNegCol);
+
+        return movement;
+    }
+
+    public Vector3f getSize(){
+        return new Vector3f(radiusX, radiusY, radiusZ);
     }
 }

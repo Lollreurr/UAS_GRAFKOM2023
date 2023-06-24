@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ced373f7-b6a3-4b77-80f7-e709bc3e4bba" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-    </list>
+    <list default="true" id="a9cf18ad-59f1-4536-ae66-ba4c0c3aa23f" name="Changes" comment="init" />
+    <list id="e726a96f-a44b-4caf-8edb-925eae334d49" name="Changes by Raphael EV" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,6 +47,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
       <recent name="Engine" />
     </key>
   </component>
@@ -57,6 +56,13 @@
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="UAS_GRAFKOM2023" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test" />
       <module name="UAS_GRAFKOM2023" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -72,6 +78,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.test" />
       </list>
     </recent_temporary>

@@ -24,7 +24,7 @@ public class Object extends ShaderProgram{
     Vector4f color;
     public Matrix4f model;
     List<Object> childObject;
-    List<Float> centerPoint;
+    Vector3f centerPoint;
     boolean scene = true;
     Vector3f size;
 
@@ -36,17 +36,17 @@ public class Object extends ShaderProgram{
         return childObject;
     }
 
-    public List<Float> getCenterPoint() {
+    public Vector3f getCenterPoint() {
         updateCenterPoint();
         return centerPoint;
     }
 
     public Object(List<ShaderModuleData> shaderModuleDataList
             , List<Vector3f> vertices
-            , Vector4f color, Vector3f size) {
+            , Vector4f color) {
         super(shaderModuleDataList);
         this.vertices = vertices;
-        this.size = size;
+//        this.size = size;
 //        setupVAOVBO();
         uniformsMap = new UniformsMap(getProgramId());
         uniformsMap.createUniform(
@@ -61,7 +61,9 @@ public class Object extends ShaderProgram{
         uniformsMap.createUniform("dirLight.ambient");
         uniformsMap.createUniform("dirLight.diffuse");
         uniformsMap.createUniform("dirLight.specular");
-        for(int i = 0; i < 4; i++){
+
+        //tambah loop untuk tambah light
+        for(int i = 0; i < 6; i++){
             uniformsMap.createUniform("pointLight["+i+"].position");
             uniformsMap.createUniform("pointLight["+i+"].ambient");
             uniformsMap.createUniform("pointLight["+i+"].diffuse");
@@ -84,7 +86,7 @@ public class Object extends ShaderProgram{
         this.color = color;
         model = new Matrix4f().identity();
         childObject = new ArrayList<>();
-        centerPoint = Arrays.asList(0f,0f,0f);
+        centerPoint = new Vector3f(0f,0f,0f);
     }
 
     public void setupVAOVBO(){
@@ -119,11 +121,14 @@ public class Object extends ShaderProgram{
         uniformsMap.setUniform("dirLight.diffuse", new Vector3f(0.4f, 0.4f, 0.4f));
         uniformsMap.setUniform("dirLight.specular", new Vector3f(0.5f, 0.5f, 0.5f));
 
+        //tambah posisi light
         Vector3f[] _pointLightPositions = {
-                new Vector3f(2f, 2f, 4.3f),
-                new Vector3f(-2f, 2f, 4.3f),
-                new Vector3f(2f, 2, -4.3f),
-                new Vector3f(-2f, 2f, -4.3f),
+                new Vector3f(70f, 2f, 0f),
+                new Vector3f(-20f, 5f, 4.3f),
+                new Vector3f(5f, 5, -5f),
+                new Vector3f(50f, 0f, 0f),
+                new Vector3f(20f, 2, -4.3f),
+                new Vector3f(-40f, 2f, -4.3f)
         };
 
         for(int i = 0; i < _pointLightPositions.length; i++){
@@ -133,6 +138,7 @@ public class Object extends ShaderProgram{
             } else {
                 uniformsMap.setUniform("pointLight["+i+"].ambient", new Vector3f(0.4f, 0.4f, 0.4f));
             }
+            if (i == 1){}
             uniformsMap.setUniform("pointLight["+i+"].diffuse", new Vector3f(0.8f, 0.8f, 0.8f));
             uniformsMap.setUniform("pointLight["+i+"].specular", new Vector3f(0.5f, 0.5f, 0.5f));
             uniformsMap.setUniform("pointLight["+i+"].constant", 1.0f);
@@ -224,9 +230,10 @@ public class Object extends ShaderProgram{
     public void updateCenterPoint(){
         Vector3f destTemp = new Vector3f();
         model.transformPosition(0.0f,0.0f,0.0f,destTemp);
-        centerPoint.set(0,destTemp.x);
-        centerPoint.set(1,destTemp.y);
-        centerPoint.set(2,destTemp.z);
+//        centerPoint.set(0,destTemp.x);
+//        centerPoint.set(1,destTemp.y);
+//        centerPoint.set(2,destTemp.z);
+        this.centerPoint = destTemp;
     }
     public void scaleObject(Float scaleX,Float scaleY,Float scaleZ){
         model = new Matrix4f().scale(scaleX,scaleY,scaleZ).mul(new Matrix4f(model));
@@ -239,5 +246,17 @@ public class Object extends ShaderProgram{
         drawSetup(camera, projection);
         glDrawArrays(GL_LINE_LOOP, 0,
                 vertices.size());
+    }
+    public ArrayList<Boolean> checkCollision(Vector3f position, Vector3f size){
+
+        boolean xCol = false;
+        boolean yCol = false;
+        boolean zCol = false;
+
+        return new ArrayList<>();
+    }
+
+    public Vector3f getSize(){
+        return new Vector3f();
     }
 }

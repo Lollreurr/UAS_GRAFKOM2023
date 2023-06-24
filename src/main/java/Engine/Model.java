@@ -23,8 +23,8 @@ public class Model extends Object{
     List <Vector2f> textures;
     List <Face> faces;
     int nbo;
-    public Model(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color, String filename, Vector3f size) throws IOException {
-        super(shaderModuleDataList, vertices, color, size);
+    public Model(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color, String filename) throws IOException {
+        super(shaderModuleDataList, vertices, color);
         normals = new ArrayList<>();
         faces= new ArrayList<>();
         textures = new ArrayList<>();
