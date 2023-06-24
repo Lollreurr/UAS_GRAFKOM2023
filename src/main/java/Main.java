@@ -108,6 +108,29 @@ public class Main {
         ));
         objects.get(3).scaleObject(1f,1f,1f);
         objects.get(3).translateObject(-23f, 50f, -180f);
+        objects.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f, 1f, 1f, 1.0f),
+                "resources/model/Ball/ball.obj"
+        ));
+        objects.get(4).scaleObject(1f,1f,1f);
+        objects.get(4).translateObject(150f, 70f, -170f);
+        objects.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f, 1f, 1f, 1.0f),
+                "resources/model/Ball/ball.obj"
+        ));
+        objects.get(5).scaleObject(1f,1f,1f);
+        objects.get(5).translateObject(-190f, 70f, -150f);
+
 
 
         //Stadium
