@@ -63,6 +63,19 @@ public class Main {
         camera.setPosition(0.7f, 7f, 15.5f + distance);
 
 
+        //Matahari
+        objects.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f, 1f, 1f, 1.0f),
+                "resources/model/Ball/ball.obj"
+        ));
+        objects.get(0).scaleObject(1f,1f,1f);
+        objects.get(0).translateObject(0f, 65f, 225f);
+
 
         //Stadium
         objects.add(new Model(
@@ -71,10 +84,9 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(215/255f, 197/255f, 79/255f, 1.0f),
+                new Vector4f(128/255f, 128/255f, 128/255f, 1.0f),
                 "resources/model/Stadium/basee.obj"
         ));
-
         objects.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
@@ -84,7 +96,6 @@ public class Main {
                 new Vector4f(61/255f, 113/255f, 181/255f, 1.0f),
                 "resources/model/Stadium/fence.obj"
         ));
-
         objects.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
@@ -94,7 +105,6 @@ public class Main {
                 new Vector4f(1.0f, 1.0f, 1.0f, 1.0f),
                 "resources/model/Stadium/landingPlace.obj"
         ));
-
         objects.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
@@ -104,7 +114,6 @@ public class Main {
                 new Vector4f(1.0f, 1.0f, 1.0f, 1.0f),
                 "resources/model/Stadium/detail.obj"
         ));
-
         objects.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
@@ -114,7 +123,6 @@ public class Main {
                 new Vector4f(112/255f, 242/255f, 252/255f, 1.0f),
                 "resources/model/Stadium/chair.obj"
         ));
-
         objects.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
@@ -124,8 +132,6 @@ public class Main {
                 new Vector4f(70/255f, 232/255f, 86/255f, 1.0f),
                 "resources/model/Stadium/dirt.obj"
         ));
-
-
         objects.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
