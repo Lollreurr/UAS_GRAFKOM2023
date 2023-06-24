@@ -1,0 +1,82 @@
+# Blender 3.5.1 MTL File: 'bowser.blend'
+# www.blender.org
+
+newmtl Joint_3_Object_0_Material_0
+Ns 96.078453
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/semester 4/UAS GRAFKOM/UAS_GRAFKOM20233/UAS_GRAFKOM2023/resources/model/Bowser/Texture_4_CMP.png
+
+newmtl Joint_3_Object_10_Material_10
+Ns 96.078453
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/semester 4/UAS GRAFKOM/UAS_GRAFKOM20233/UAS_GRAFKOM2023/resources/model/Bowser/Texture_2_CMP.png
+
+newmtl Joint_3_Object_1_Material_1
+Ns 96.078453
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/semester 4/UAS GRAFKOM/UAS_GRAFKOM20233/UAS_GRAFKOM2023/resources/model/Bowser/Texture_5_CMP.png
+
+newmtl Joint_3_Object_2_Material_2
+Ns 96.078453
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/semester 4/UAS GRAFKOM/UAS_GRAFKOM20233/UAS_GRAFKOM2023/resources/model/Bowser/Texture_6_CMP.png
+
+newmtl Joint_3_Object_3_Material_3
+Ns 96.078453
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/semester 4/UAS GRAFKOM/UAS_GRAFKOM20233/UAS_GRAFKOM2023/resources/model/Bowser/Texture_7_CMP.png
+
+newmtl Joint_3_Object_6_Material_6
+Ns 96.078453
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/semester 4/UAS GRAFKOM/UAS_GRAFKOM20233/UAS_GRAFKOM2023/resources/model/Bowser/Texture_10_CMP.png
+
+newmtl Joint_3_Object_8_Material_8
+Ns 96.078453
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/semester 4/UAS GRAFKOM/UAS_GRAFKOM20233/UAS_GRAFKOM2023/resources/model/Bowser/Texture_12_CMP.png
+
+newmtl Joint_3_Object_9_Material_9
+Ns 96.078453
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/semester 4/UAS GRAFKOM/UAS_GRAFKOM20233/UAS_GRAFKOM2023/resources/model/Bowser/Texture_13_CMP.png

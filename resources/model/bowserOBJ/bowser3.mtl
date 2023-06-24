@@ -1,0 +1,72 @@
+# Blender 3.5.1 MTL File: 'bowser.blend'
+# www.blender.org
+
+newmtl Joint_4_Object_2_Material_2
+Ns 96.078453
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/semester 4/UAS GRAFKOM/UAS_GRAFKOM20233/UAS_GRAFKOM2023/resources/model/Bowser/Texture_16_CMP.png
+
+newmtl Joint_4_Object_3_Material_3
+Ns 96.078453
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/semester 4/UAS GRAFKOM/UAS_GRAFKOM20233/UAS_GRAFKOM2023/resources/model/Bowser/Texture_17_CMP.png
+
+newmtl Joint_4_Object_5_Material_5
+Ns 96.078453
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/semester 4/UAS GRAFKOM/UAS_GRAFKOM20233/UAS_GRAFKOM2023/resources/model/Bowser/Texture_18_CMP.png
+
+newmtl Joint_4_Object_6_Material_6
+Ns 96.078453
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/semester 4/UAS GRAFKOM/UAS_GRAFKOM20233/UAS_GRAFKOM2023/resources/model/Bowser/Texture_19_CMP.png
+
+newmtl Joint_4_Object_7_Material_7
+Ns 96.078453
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/semester 4/UAS GRAFKOM/UAS_GRAFKOM20233/UAS_GRAFKOM2023/resources/model/Bowser/Texture_20_CMP.png
+
+newmtl Joint_4_Object_8_Material_8
+Ns 96.078453
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/semester 4/UAS GRAFKOM/UAS_GRAFKOM20233/UAS_GRAFKOM2023/resources/model/Bowser/Texture_21_CMP.png
+
+newmtl Joint_4_Object_9_Material_9
+Ns 96.078453
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/semester 4/UAS GRAFKOM/UAS_GRAFKOM20233/UAS_GRAFKOM2023/resources/model/Bowser/Texture_22_CMP.png

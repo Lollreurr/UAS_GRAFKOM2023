@@ -1,0 +1,12 @@
+# Blender 3.5.1 MTL File: 'bowser.blend'
+# www.blender.org
+
+newmtl Joint_2_Object_2_Material_2
+Ns 96.078453
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/semester 4/UAS GRAFKOM/UAS_GRAFKOM20233/UAS_GRAFKOM2023/resources/model/Bowser/Texture_2_CMP.png

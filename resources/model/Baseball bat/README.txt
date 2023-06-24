@@ -1,1 +1,0 @@
-baseball bat by vasilevz on Thingiverse: https://www.thingiverse.com/thing:2002860
