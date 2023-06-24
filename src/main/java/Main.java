@@ -326,6 +326,19 @@ public class Main {
                 "resources/model/Stadium/pitch.obj"
         ));
 
+        //bola baseball
+        objects.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f, 153/255f, 51/255f, 1.0f),
+                "resources/model/Ball/ball.obj"
+        ));
+        objects.get(11).scaleObject(0.5f,0.5f,0.5f);
+        objects.get(11).translateObject(0f,7f,35f);
+
 
 //        this.sk = new Skybox(
 //                Arrays.asList(
