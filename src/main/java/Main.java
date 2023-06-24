@@ -30,6 +30,7 @@ public class Main {
     float distance = 1f;
     float angle = 0f;
     float rotation = (float)Math.toRadians(1f);
+    float rotation1 = (float) Math.toRadians(1f);
     float move = 0.01f;
     List<Float> temp;
     int carPos = 0;
@@ -61,7 +62,7 @@ public class Main {
     public void init() throws IOException {
         window.init();
         GL.createCapabilities();
-        camera.setPosition(0.7f, 7f, 15.5f + distance);
+        camera.setPosition(0.7f, 7f, 50f + distance);
 
 
         //Lamp
@@ -201,7 +202,7 @@ public class Main {
 
 
 
-        //mario
+        //mario - obj 7
         objects.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
@@ -266,7 +267,7 @@ public class Main {
 
 
 
-        //Stadium
+        //Stadium - obj 10
         objects.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
@@ -342,7 +343,7 @@ public class Main {
                 "resources/model/Ball/ball.obj"
         ));
         objects.get(11).scaleObject(0.5f,0.5f,0.5f);
-        objects.get(11).translateObject(0f,7f,35f);
+        objects.get(11).translateObject(0f,6f,35f);
 
 
 //        this.sk = new Skybox(
@@ -415,17 +416,17 @@ public class Main {
     }
 
     public void setPos(){
-        Vector3f pos = objects.get(0).model.transformPosition(new Vector3f());
+        Vector3f pos = objects.get(7).model.transformPosition(new Vector3f());
 
         ArrayList<Vector3f> vertices = new ArrayList<>(List.of());
 
         for(double i=0;i<360;i+=360/360){
-            float x = (float)(pos.x + 50f*Math.sin(Math.toRadians(i)));
-            float z = (float)(pos.z + 50f*Math.cos(Math.toRadians(i)));
+            float x = (float)(pos.x + 110f*Math.sin(Math.toRadians(i)));
+            float z = (float)(pos.z + 110f*Math.cos(Math.toRadians(i)));
             vertices.add(new Vector3f(x, pos.y+13f, z));
         }
 
-        camera.setPosition(vertices.get((int)rotation).x,vertices.get((int)rotation).y, vertices.get((int)rotation).z);
+        camera.setPosition(vertices.get((int)rotation1).x,vertices.get((int)rotation1).y, vertices.get((int)rotation1).z);
     }
 
     public void input() {
@@ -439,7 +440,6 @@ public class Main {
             projection.setFOV(projection.getFOV() - (window.getMouseInput().getScroll().y * 0.1f));
             window.getMouseInput().setScroll(new Vector2f());
         }
-
 
 //        temp = objects.get(0).getCenterPoint();
         angle = angle % (float) Math.toRadians(360);
@@ -482,6 +482,7 @@ public class Main {
 //            camera.moveRight(move);
 //        }
 
+
         if (window.isKeyPressed(GLFW_KEY_W)){
             camera.moveForward(move);
         }
@@ -504,32 +505,32 @@ public class Main {
         }
 
         if (window.isKeyPressed(GLFW_KEY_LEFT)){
-            objects.get(0).translateObject(-0.1f, 0.0f, 0.0f);
+            objects.get(7).translateObject(-1f, 0.0f, 0.0f);
             setPos();
         }
 
         if (window.isKeyPressed(GLFW_KEY_RIGHT)){
-            objects.get(0).translateObject(0.1f, 0.0f, 0.0f);
+            objects.get(7).translateObject(1f, 0.0f, 0.0f);
             setPos();
         }
 
         if (window.isKeyPressed(GLFW_KEY_UP)){
-            objects.get(0).translateObject(0.0f, 0.0f, -0.1f);
+            objects.get(7).translateObject(0.0f, 0.0f, -1f);
             setPos();
         }
 
         if (window.isKeyPressed(GLFW_KEY_DOWN)){
-            objects.get(0).translateObject(0.0f, 0.0f, 0.1f);
+            objects.get(7).translateObject(0.0f, 0.0f, 1f);
             setPos();
         }
 
         if (window.isKeyPressed(GLFW_KEY_P)){
-            objects.get(0).translateObject(0.0f, 0.1f, 0.0f);
+            objects.get(7).translateObject(0.0f, 1f, 0.0f);
             setPos();
         }
 
         if (window.isKeyPressed(GLFW_KEY_O)){
-            objects.get(0).translateObject(0.0f, -0.1f, 0.0f);
+            objects.get(7).translateObject(0.0f, -1f, 0.0f);
             setPos();
         }
 
@@ -558,15 +559,15 @@ public class Main {
 
         if (window.isKeyPressed(GLFW_KEY_B)){
             move = 1f;
-            Vector3f pos = objects.get(0).model.transformPosition(new Vector3f());
+            Vector3f pos = objects.get(10).model.transformPosition(new Vector3f());
             Vector3f posCam = camera.getPosition();
 
             ArrayList<Vector3f> vertices = new ArrayList<>(List.of());
 
             for(double i=0;i<360;i+=360/360){
-                float x = (float)(pos.x + 50f*Math.sin(Math.toRadians(i)));
-                float z = (float)(pos.z + 50f*Math.cos(Math.toRadians(i)));
-                vertices.add(new Vector3f(x, pos.y+13f, z));
+                float x = (float)(pos.x + 160f*Math.sin(Math.toRadians(i)));
+                float z = (float)(pos.z + 160f*Math.cos(Math.toRadians(i)));
+                vertices.add(new Vector3f(x, pos.y+70f, z));
             }
 
             camera.setPosition(vertices.get(0).x, vertices.get(0).y, vertices.get(0).z);
