@@ -151,7 +151,7 @@ public class Main {
                 new Vector4f(0f, 0f, 0f, 1.0f),
                 "resources/model/bowserOBJ/bowser2.obj"
         ));
-        objects.add(new Model(
+        objects.get(6).getChildObject().add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
@@ -160,7 +160,7 @@ public class Main {
                 new Vector4f(247/255f, 225/255f, 19/255f, 1.0f),
                 "resources/model/bowserOBJ/bowser3.obj"
         ));
-        objects.add(new Model(
+        objects.get(6).getChildObject().add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
@@ -169,7 +169,7 @@ public class Main {
                 new Vector4f(247/255f, 153/255f, 11/255f, 1.0f),
                 "resources/model/bowserOBJ/bowser4.obj"
         ));
-        objects.add(new Model(
+        objects.get(6).getChildObject().add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
@@ -178,7 +178,7 @@ public class Main {
                 new Vector4f(255/255f, 255/255f, 153/255f, 1.0f),
                 "resources/model/bowserOBJ/bowser5.obj"
         ));
-        objects.add(new Model(
+        objects.get(6).getChildObject().add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
@@ -186,6 +186,68 @@ public class Main {
                 new ArrayList<>(),
                 new Vector4f(247/255f, 19/255f, 19/255f, 1.0f),
                 "resources/model/bowserOBJ/bowser6.obj"
+        ));
+
+        //mario
+        objects.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(255/255f, 204/255f, 153/255f, 1.0f),
+                "resources/model/marioOBJ/mario1.obj"
+        ));
+        objects.get(7).getChildObject().add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(255/255f, 0f,0f, 1.0f),
+                "resources/model/marioOBJ/mario2.obj"
+        ));
+        objects.get(7).getChildObject().add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(192/255f, 192/255f, 192/255f, 1.0f),
+                "resources/model/marioOBJ/mario3.obj"
+        ));
+
+
+        //princess peach
+        objects.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(255/255f, 255/255f, 102/255f, 1.0f),
+                "resources/model/peachOBJ/peach1.obj"
+        ));
+        objects.get(8).getChildObject().add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(255/255f, 153/255f, 204/255f, 1.0f),
+                "resources/model/peachOBJ/peach2.obj"
+        ));
+
+
+        //luigi
+        objects.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0f, 1f, 0f, 1.0f),
+                "resources/model/luigiOBJ/luigi1.obj"
         ));
 
         //Stadium
@@ -198,7 +260,7 @@ public class Main {
                 new Vector4f(128/255f, 128/255f, 128/255f, 1.0f),
                 "resources/model/Stadium/basee.obj"
         ));
-        objects.add(new Model(
+        objects.get(10).getChildObject().add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
@@ -207,7 +269,7 @@ public class Main {
                 new Vector4f(61/255f, 113/255f, 181/255f, 1.0f),
                 "resources/model/Stadium/fence.obj"
         ));
-        objects.add(new Model(
+        objects.get(10).getChildObject().add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
@@ -216,7 +278,7 @@ public class Main {
                 new Vector4f(1.0f, 1.0f, 1.0f, 1.0f),
                 "resources/model/Stadium/landingPlace.obj"
         ));
-        objects.add(new Model(
+        objects.get(10).getChildObject().add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
@@ -225,7 +287,7 @@ public class Main {
                 new Vector4f(1.0f, 1.0f, 1.0f, 1.0f),
                 "resources/model/Stadium/detail.obj"
         ));
-        objects.add(new Model(
+        objects.get(10).getChildObject().add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
@@ -234,7 +296,7 @@ public class Main {
                 new Vector4f(112/255f, 242/255f, 252/255f, 1.0f),
                 "resources/model/Stadium/chair.obj"
         ));
-        objects.add(new Model(
+        objects.get(10).getChildObject().add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
@@ -243,7 +305,7 @@ public class Main {
                 new Vector4f(70/255f, 232/255f, 86/255f, 1.0f),
                 "resources/model/Stadium/dirt.obj"
         ));
-        objects.add(new Model(
+        objects.get(10).getChildObject().add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)

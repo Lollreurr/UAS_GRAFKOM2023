@@ -1,0 +1,12 @@
+# Blender 3.5.1 MTL File: 'mario.blend'
+# www.blender.org
+
+newmtl bm_baseballbat
+Ns 29.411768
+Ka 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd D:/semester 4/UAS GRAFKOM/UAS_GRAFKOM20233/UAS_GRAFKOM2023/resources/model/Baseball bat/bm_baseballbat.png
+map_Ks D:/semester 4/UAS GRAFKOM/UAS_GRAFKOM20233/UAS_GRAFKOM2023/resources/model/Baseball bat/bm_baseballbat_s.png
