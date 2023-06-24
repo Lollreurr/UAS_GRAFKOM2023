@@ -123,11 +123,11 @@ public class Object extends ShaderProgram{
 
         //tambah posisi light
         Vector3f[] _pointLightPositions = {
-                new Vector3f(0f, 1000f, 50f),
-                new Vector3f(0f, 1000f, 50f),
-                new Vector3f(0f, 0f, 0f),
+                new Vector3f(195f, 120f, -20f),
+                new Vector3f(195f, 70f, -20f),
+                new Vector3f(-190f, 70f, -13f),
                 new Vector3f(0f, 65f, 225f),
-                new Vector3f(20f, 65f, -230f),
+                new Vector3f(-23f, 50f, -180f),
                 new Vector3f(0f, 2f, 90f),
                 new Vector3f(50f, 5, -5f),
                 new Vector3f(0f, 0f, 0f),

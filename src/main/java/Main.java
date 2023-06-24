@@ -63,7 +63,7 @@ public class Main {
         camera.setPosition(0.7f, 7f, 15.5f + distance);
 
 
-        //Matahari
+        //Lamp
         objects.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
@@ -74,7 +74,40 @@ public class Main {
                 "resources/model/Ball/ball.obj"
         ));
         objects.get(0).scaleObject(1f,1f,1f);
-        objects.get(0).translateObject(0f, 65f, 225f);
+        objects.get(0).translateObject(190f, 70f, -20f);
+        objects.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f, 1f, 1f, 1.0f),
+                "resources/model/Ball/ball.obj"
+        ));
+        objects.get(1).scaleObject(1f,1f,1f);
+        objects.get(1).translateObject(-190f, 70f, -13f);
+        objects.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f, 1f, 1f, 1.0f),
+                "resources/model/Ball/ball.obj"
+        ));
+        objects.get(2).scaleObject(1f,1f,1f);
+        objects.get(2).translateObject(0f, 65f, 225f);
+        objects.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f, 1f, 1f, 1.0f),
+                "resources/model/Ball/ball.obj"
+        ));
+        objects.get(3).scaleObject(1f,1f,1f);
+        objects.get(3).translateObject(-23f, 50f, -180f);
 
 
         //Stadium
