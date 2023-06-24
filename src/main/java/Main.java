@@ -46,6 +46,7 @@ public class Main {
 
     boolean pressed = false;
     boolean pressed1 = false;
+    Skybox sk;
 
     public void run() throws IOException {
 
@@ -132,7 +133,7 @@ public class Main {
         objects.get(5).translateObject(-190f, 70f, -150f);
 
 
-        //Bowser
+        //Bowser - obj 6
         objects.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
@@ -142,7 +143,7 @@ public class Main {
                 new Vector4f(29/255f, 175/255f, 34/255f, 1.0f),
                 "resources/model/bowserOBJ/bowser1.obj"
         ));
-        objects.add(new Model(
+        objects.get(6).getChildObject().add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
@@ -187,6 +188,13 @@ public class Main {
                 new Vector4f(247/255f, 19/255f, 19/255f, 1.0f),
                 "resources/model/bowserOBJ/bowser6.obj"
         ));
+        //scale bowser
+        objects.get(6).scaleObject(0.5f,0.5f,0.5f);
+        for (int i = 0; i < 5; i++){
+            objects.get(6).getChildObject().get(i).scaleObject(0.5f,0.5f,0.5f);
+        }
+        objects.get(6).translateObject(0f,1f,25f);
+
 
         //mario
         objects.add(new Model(
@@ -249,6 +257,9 @@ public class Main {
                 new Vector4f(0f, 1f, 0f, 1.0f),
                 "resources/model/luigiOBJ/luigi1.obj"
         ));
+
+
+
 
         //Stadium
         objects.add(new Model(
@@ -315,6 +326,19 @@ public class Main {
                 "resources/model/Stadium/pitch.obj"
         ));
 
+
+//        this.sk = new Skybox(
+//                Arrays.asList(
+//                        new ShaderProgram.ShaderModuleData(
+//                                "resources/shaders/skybox.vert"
+//                                , GL_VERTEX_SHADER),
+//                        new ShaderProgram.ShaderModuleData(
+//                                "resources/shaders/skybox.frag"
+//                                , GL_FRAGMENT_SHADER)
+//                ),
+//                new ArrayList<>(),
+//                new Vector4f(0.0f,1.0f,0.0f,1.0f)
+//        );
 
 
 
@@ -420,20 +444,6 @@ public class Main {
                     objectChild.setScene(malam);
                 }
             }
-
-//            for (Object object: objectMejaKursi){
-//                object.setScene(malam);
-//                for(Object objectChild: object.getChildObject()){
-//                    objectChild.setScene(malam);
-//                }
-//            }
-//
-//            for (Object object: objectAstronaut){
-//                object.setScene(malam);
-//                for(Object objectChild: object.getChildObject()){
-//                    objectChild.setScene(malam);
-//                }
-//            }
 
             delay2 = true;
         }
@@ -835,6 +845,7 @@ public class Main {
             for (Object object: objectFinishLine){
                 object.draw(camera, projection);
             }
+//            sk.draw(camera, projection);
 
             // Restore state
             glDisableVertexAttribArray(0);

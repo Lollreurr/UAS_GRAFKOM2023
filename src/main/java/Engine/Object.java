@@ -130,9 +130,9 @@ public class Object extends ShaderProgram{
                 new Vector3f(-23f, 50f, -180f),
                 new Vector3f(150f, 70f, -190f),
                 new Vector3f(-190f, 70f, -150f),
-                new Vector3f(0f, 0f, 0f),
-                new Vector3f(0f, 0, 0f),
-                new Vector3f(0f, 0f, 0f)
+                new Vector3f(-190f, 120f, 0f),
+                new Vector3f(190f, 120, 0f),
+                new Vector3f(0f, 0f, 30f)
         };
 
         for(int i = 0; i < _pointLightPositions.length; i++){
@@ -152,7 +152,7 @@ public class Object extends ShaderProgram{
                 uniformsMap.setUniform("pointLight["+i+"].linear", 0.09f);
                 uniformsMap.setUniform("pointLight["+i+"].quadratic", 0.032f);
             }
-            if (i >= 0 && i < 9){
+            if (i >= 0 && i < 7){
                 uniformsMap.setUniform("pointLight["+i+"].ambient", new Vector3f(0.005f, 0.005f, 0.005f));
                 uniformsMap.setUniform("pointLight["+i+"].diffuse", new Vector3f(0.8f, 0.8f, 255/255f));
                 uniformsMap.setUniform("pointLight["+i+"].specular", new Vector3f(0.5f, 0.5f, 0.5f));
