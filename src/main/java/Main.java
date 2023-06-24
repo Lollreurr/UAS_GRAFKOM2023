@@ -62,18 +62,7 @@ public class Main {
         GL.createCapabilities();
         camera.setPosition(0.7f, 7f, 15.5f + distance);
 
-        //bowser
-        objects.add(new Model(
-                Arrays.asList(
-                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
-                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
-                ),
-                new ArrayList<>(),
-                new Vector4f(1.0f, 128/255f, 0.0f, 1.0f),
-                "resources/model/Bowser/bowser.obj"
-        ));
-        objects.get(0).scaleObject(0.4f,0.4f,0.4f);
-        objects.get(0).translateObject(-5f,1.5f,0f);
+
 
         //Stadium
         objects.add(new Model(
@@ -82,62 +71,126 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
+                new Vector4f(215/255f, 197/255f, 79/255f, 1.0f),
+                "resources/model/Stadium/basee.obj"
+        ));
+
+        objects.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(61/255f, 113/255f, 181/255f, 1.0f),
+                "resources/model/Stadium/fence.obj"
+        ));
+
+        objects.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
                 new Vector4f(1.0f, 1.0f, 1.0f, 1.0f),
-                "resources/model/files/MStad.obj"
+                "resources/model/Stadium/landingPlace.obj"
         ));
-        objects.get(1).translateObject(0f,0f, 0f);
 
-        //mario duduk
         objects.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(0.0f, 1.0f, 0.0f, 1.0f),
-                "resources/model/files/mario111.obj"
+                new Vector4f(1.0f, 1.0f, 1.0f, 1.0f),
+                "resources/model/Stadium/detail.obj"
         ));
-        objects.get(2).scaleObject(0.8f,0.8f,0.8f);
-        objects.get(2).translateObject(15f,3f,0f);
-        //trophy
-        objects.add(new Model(
-                Arrays.asList(
-                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
-                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
-                ),
-                new ArrayList<>(),
-                new Vector4f(1.0f, 1.0f, 0.0f, 1.0f),
-                "resources/model/files/mariocu.obj"
-        ));
-        objects.get(3).scaleObject(0.8f,0.8f,0.8f);
-        objects.get(3).translateObject(-15f,1.5f,0f);
-        //mario bunshin
-        objects.add(new Model(
-                Arrays.asList(
-                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
-                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
-                ),
-                new ArrayList<>(),
-                new Vector4f(0.0f, 0.0f, 1.0f, 1.0f),
-                "resources/model/files/mario-sculpture.obj"
-        ));
-        objects.get(4).scaleObject(0.1f,0.1f,0.1f);
-        objects.get(4).translateObject(5f,8f, 0f);
-//        objects.get(4).rotateObject((float) Math.toRadians(1f), 1f, 1f, 1f);
 
-        //bola baseball
         objects.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(255/255f, 255/255f, 153/255f, 1.0f),
-                "resources/model/Ball/ball.obj"
+                new Vector4f(112/255f, 242/255f, 252/255f, 1.0f),
+                "resources/model/Stadium/chair.obj"
         ));
-        objects.get(5).scaleObject(0.6f,0.6f,0.6f);
-        objects.get(5).translateObject(25f,5f,0f);
 
+        objects.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(70/255f, 232/255f, 86/255f, 1.0f),
+                "resources/model/Stadium/dirt.obj"
+        ));
+
+
+        objects.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(249/255f, 216/255f, 166/255f, 1.0f),
+                "resources/model/Stadium/pitch.obj"
+        ));
+
+
+
+
+
+//        //mario duduk
+//        objects.add(new Model(
+//                Arrays.asList(
+//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+//                ),
+//                new ArrayList<>(),
+//                new Vector4f(0.0f, 1.0f, 0.0f, 1.0f),
+//                "resources/model/files/mario111.obj"
+//        ));
+//        objects.get(2).scaleObject(0.8f,0.8f,0.8f);
+//        objects.get(2).translateObject(15f,3f,0f);
+//        //trophy
+//        objects.add(new Model(
+//                Arrays.asList(
+//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+//                ),
+//                new ArrayList<>(),
+//                new Vector4f(1.0f, 1.0f, 0.0f, 1.0f),
+//                "resources/model/files/mariow.obj"
+//        ));
+//
+//        //mario bunshin
+//        objects.add(new Model(
+//                Arrays.asList(
+//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+//                ),
+//                new ArrayList<>(),
+//                new Vector4f(0.0f, 0.0f, 1.0f, 1.0f),
+//                "resources/model/files/mario-sculpture.obj"
+//        ));
+//        objects.get(4).scaleObject(0.1f,0.1f,0.1f);
+//        objects.get(4).translateObject(5f,8f, 0f);
+////        objects.get(4).rotateObject((float) Math.toRadians(1f), 1f, 1f, 1f);
+//
+//        //bola baseball
+//        objects.add(new Model(
+//                Arrays.asList(
+//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+//                ),
+//                new ArrayList<>(),
+//                new Vector4f(255/255f, 255/255f, 153/255f, 1.0f),
+//                "resources/model/Ball/ball.obj"
+//        ));
+//        objects.get(5).scaleObject(0.6f,0.6f,0.6f);
+//        objects.get(5).translateObject(25f,5f,0f);
+//
+//    }
     }
 
     public void setPos(){
