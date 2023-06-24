@@ -134,6 +134,7 @@ public class Main {
 
 
         //Bowser - obj 6
+        //Bowser
         objects.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
@@ -143,6 +144,8 @@ public class Main {
                 new Vector4f(29/255f, 175/255f, 34/255f, 1.0f),
                 "resources/model/bowserOBJ/bowser1.obj"
         ));
+        objects.get(6).scaleObject(0.5f,0.5f,0.5f);
+
         objects.get(6).getChildObject().add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
@@ -152,6 +155,7 @@ public class Main {
                 new Vector4f(0f, 0f, 0f, 1.0f),
                 "resources/model/bowserOBJ/bowser2.obj"
         ));
+        objects.get(6).getChildObject().get(0).scaleObject(0.5f,0.5f,0.5f);
         objects.get(6).getChildObject().add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
@@ -161,6 +165,7 @@ public class Main {
                 new Vector4f(247/255f, 225/255f, 19/255f, 1.0f),
                 "resources/model/bowserOBJ/bowser3.obj"
         ));
+        objects.get(6).getChildObject().get(1).scaleObject(0.5f,0.5f,0.5f);
         objects.get(6).getChildObject().add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
@@ -170,6 +175,7 @@ public class Main {
                 new Vector4f(247/255f, 153/255f, 11/255f, 1.0f),
                 "resources/model/bowserOBJ/bowser4.obj"
         ));
+        objects.get(6).getChildObject().get(2).scaleObject(0.5f,0.5f,0.5f);
         objects.get(6).getChildObject().add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
@@ -179,6 +185,7 @@ public class Main {
                 new Vector4f(255/255f, 255/255f, 153/255f, 1.0f),
                 "resources/model/bowserOBJ/bowser5.obj"
         ));
+        objects.get(6).getChildObject().get(3).scaleObject(0.5f,0.5f,0.5f);
         objects.get(6).getChildObject().add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
@@ -188,12 +195,10 @@ public class Main {
                 new Vector4f(247/255f, 19/255f, 19/255f, 1.0f),
                 "resources/model/bowserOBJ/bowser6.obj"
         ));
-        //scale bowser
-        objects.get(6).scaleObject(0.5f,0.5f,0.5f);
-        for (int i = 0; i < 5; i++){
-            objects.get(6).getChildObject().get(i).scaleObject(0.5f,0.5f,0.5f);
-        }
-        objects.get(6).translateObject(0f,1f,25f);
+        objects.get(6).getChildObject().get(4).scaleObject(0.5f,0.5f,0.5f);
+
+        objects.get(6).translateObject(0f,0.4f,25f);
+
 
 
         //mario
