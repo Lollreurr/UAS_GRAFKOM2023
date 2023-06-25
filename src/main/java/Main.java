@@ -19,14 +19,13 @@ import static org.lwjgl.opengl.GL30.*;
 public class Main {
     private Window window = new Window(1080, 1080, "Hello World");
     ArrayList<Object> objects = new ArrayList<>();
-    ArrayList<Object> objectGround = new ArrayList<>();
     Camera camera = new Camera();
     Projection projection = new Projection(window.getWidth(), window.getHeight());
     float distance = 1f;
     float angle = 0f;
     float rotation = (float)Math.toRadians(1f);
     float rotCamera = (float) Math.toRadians(1f);
-    float move = 0.01f;
+    float move = 1f;
     List<Float> temp;
     boolean delay = false;
     int delayCounter = 0;
@@ -434,13 +433,6 @@ public class Main {
                 }
             }
 
-            for (Object object: objectGround){
-                object.setScene(malam);
-                for(Object objectChild: object.getChildObject()){
-                    objectChild.setScene(malam);
-                }
-            }
-
             delay2 = true;
         }
 
@@ -683,10 +675,6 @@ public class Main {
 
             // code here
             for (Object object: objects) {
-                object.draw(camera, projection, mode_light);
-            }
-
-            for (Object object: objectGround) {
                 object.draw(camera, projection, mode_light);
             }
 
