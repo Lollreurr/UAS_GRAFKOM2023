@@ -35,6 +35,7 @@ public class Main {
     int delayCounter2 = 0;
     boolean delay3 = false;
     int delayCounter3 = 0;
+    Vector3f pos_ball;
 
     boolean pressed = false;
     Skybox sk;
@@ -343,6 +344,8 @@ public class Main {
         ));
         objects.get(11).scaleObject(0.5f,0.5f,0.5f);
         objects.get(11).translateObject(0f,6f,35f);
+        pos_ball = objects.get(11).model.transformPosition(new Vector3f());
+
 
         //lamp back kuning - kanan
         objects.add(new Model(
@@ -625,6 +628,7 @@ public class Main {
             setTPS();
         }
 
+
         //homerun
         if (window.isKeyPressed(GLFW_KEY_H)){
             press_homerun = true;
@@ -637,14 +641,9 @@ public class Main {
         }
         if (press_homerun){
             setHomerun();
-//            Vector3f posObj = objects.get(11).model.transformPosition(new Vector3f());
-//            objects.get(11).translateObject(-posObj.x, -posObj.y, -posObj.z);
-//            objects.get(11).rotateObject((float) Math.toRadians(1), 0f, 1f, 0f);
-//            objects.get(11).translateObject(posObj.x, posObj.y, posObj.z);
-//            setHomerun();
             objects.get(11).translateObject(0f,0f,1f);
             move_homerun += 1f;
-            if (move_homerun >=45){
+            if (move_homerun >=40){
                 move_homerun = 0.0f;
                 press_mario_run = true;
             }
@@ -663,6 +662,7 @@ public class Main {
                 press_mario_run = false;
             }
             press_homerun = false;
+            objects.get(11).translateObject(pos_ball.x,pos_ball.y,-pos_ball.z);
         }
 
 
