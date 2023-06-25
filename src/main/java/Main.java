@@ -40,6 +40,11 @@ public class Main {
     Skybox sk;
     int[] mode_light;
 
+    boolean press_homerun = false;
+    boolean press_mario_run = false;
+    float move_mario_run = 0f;
+    float move_homerun = 0;
+
     boolean third_p = false, first_p = false, cinema_t = false;
 
     public void run() throws IOException {
@@ -326,7 +331,7 @@ public class Main {
                 "resources/model/Stadium/pitch.obj"
         ));
 
-        //bola baseball
+        //bola baseball - obj 11
         objects.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
@@ -362,73 +367,6 @@ public class Main {
         ));
         objects.get(13).translateObject(-140f,70f,140f);
 
-//        this.sk = new Skybox(
-//                Arrays.asList(
-//                        new ShaderProgram.ShaderModuleData(
-//                                "resources/shaders/skybox.vert"
-//                                , GL_VERTEX_SHADER),
-//                        new ShaderProgram.ShaderModuleData(
-//                                "resources/shaders/skybox.frag"
-//                                , GL_FRAGMENT_SHADER)
-//                ),
-//                new ArrayList<>(),
-//                new Vector4f(0.0f,1.0f,0.0f,1.0f)
-//        );
-
-
-
-
-//        //mario duduk
-//        objects.add(new Model(
-//                Arrays.asList(
-//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
-//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
-//                ),
-//                new ArrayList<>(),
-//                new Vector4f(0.0f, 1.0f, 0.0f, 1.0f),
-//                "resources/model/files/mario111.obj"
-//        ));
-//        objects.get(2).scaleObject(0.8f,0.8f,0.8f);
-//        objects.get(2).translateObject(15f,3f,0f);
-//        //trophy
-//        objects.add(new Model(
-//                Arrays.asList(
-//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
-//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
-//                ),
-//                new ArrayList<>(),
-//                new Vector4f(1.0f, 1.0f, 0.0f, 1.0f),
-//                "resources/model/files/mariow.obj"
-//        ));
-//
-//        //mario bunshin
-//        objects.add(new Model(
-//                Arrays.asList(
-//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
-//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
-//                ),
-//                new ArrayList<>(),
-//                new Vector4f(0.0f, 0.0f, 1.0f, 1.0f),
-//                "resources/model/files/mario-sculpture.obj"
-//        ));
-//        objects.get(4).scaleObject(0.1f,0.1f,0.1f);
-//        objects.get(4).translateObject(5f,8f, 0f);
-////        objects.get(4).rotateObject((float) Math.toRadians(1f), 1f, 1f, 1f);
-//
-//        //bola baseball
-//        objects.add(new Model(
-//                Arrays.asList(
-//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
-//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
-//                ),
-//                new ArrayList<>(),
-//                new Vector4f(255/255f, 255/255f, 153/255f, 1.0f),
-//                "resources/model/Ball/ball.obj"
-//        ));
-//        objects.get(5).scaleObject(0.6f,0.6f,0.6f);
-//        objects.get(5).translateObject(25f,5f,0f);
-//
-//    }
     }
 
     public void setHomerun(){
@@ -624,37 +562,6 @@ public class Main {
         }
 
 
-//        if (window.isKeyPressed(GLFW_KEY_LEFT)){
-//            objects.get(7).translateObject(-1f, 0.0f, 0.0f);
-//            setPos();
-//        }
-//
-//        if (window.isKeyPressed(GLFW_KEY_RIGHT)){
-//            objects.get(7).translateObject(1f, 0.0f, 0.0f);
-//            setPos();
-//        }
-//
-//        if (window.isKeyPressed(GLFW_KEY_UP)){
-//            objects.get(7).translateObject(0.0f, 0.0f, -1f);
-//            setPos();
-//        }
-//
-//        if (window.isKeyPressed(GLFW_KEY_DOWN)){
-//            objects.get(7).translateObject(0.0f, 0.0f, 1f);
-//            setPos();
-//        }
-//
-//        if (window.isKeyPressed(GLFW_KEY_P)){
-//            objects.get(7).translateObject(0.0f, 1f, 0.0f);
-//            setPos();
-//        }
-//
-//        if (window.isKeyPressed(GLFW_KEY_O)){
-//            objects.get(7).translateObject(0.0f, -1f, 0.0f);
-//            setPos();
-//        }
-
-
         // FPS trigger
         if (window.isKeyPressed(GLFW_KEY_F1) && !first_p){
             Vector3f pos = camera.getPosition();
@@ -720,6 +627,7 @@ public class Main {
 
         //homerun
         if (window.isKeyPressed(GLFW_KEY_H)){
+            press_homerun = true;
             setHomerun();
             Vector3f posObj = objects.get(7).model.transformPosition(new Vector3f());
             objects.get(7).translateObject(-posObj.x, -posObj.y, -posObj.z);
@@ -727,6 +635,36 @@ public class Main {
             objects.get(7).translateObject(posObj.x, posObj.y, posObj.z);
             setHomerun();
         }
+        if (press_homerun){
+            setHomerun();
+//            Vector3f posObj = objects.get(11).model.transformPosition(new Vector3f());
+//            objects.get(11).translateObject(-posObj.x, -posObj.y, -posObj.z);
+//            objects.get(11).rotateObject((float) Math.toRadians(1), 0f, 1f, 0f);
+//            objects.get(11).translateObject(posObj.x, posObj.y, posObj.z);
+//            setHomerun();
+            objects.get(11).translateObject(0f,0f,1f);
+            move_homerun += 1f;
+            if (move_homerun >=45){
+                move_homerun = 0.0f;
+                press_mario_run = true;
+            }
+        }
+        if (press_mario_run){
+            setHomerun();
+            Vector3f posObj = objects.get(7).model.transformPosition(new Vector3f());
+            objects.get(7).translateObject(-posObj.x, -posObj.y, -posObj.z);
+            objects.get(7).rotateObject((float) Math.toRadians(1), 0f, 1f, 0f);
+            objects.get(7).translateObject(posObj.x, posObj.y, posObj.z);
+            setHomerun();
+            move_mario_run += movee;
+
+            if (move_mario_run >= 360.0f){
+                move_mario_run = 0.0f;
+                press_mario_run = false;
+            }
+            press_homerun = false;
+        }
+
 
 
     }
