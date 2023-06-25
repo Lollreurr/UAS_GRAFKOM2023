@@ -198,7 +198,7 @@ public class Main {
         ));
         objects.get(6).getChildObject().get(4).scaleObject(0.5f,0.5f,0.5f);
 
-        objects.get(6).translateObject(0f,0.4f,25f);
+        objects.get(6).translateObject(0f,1.2f,25f);
 
 
 
@@ -345,6 +345,28 @@ public class Main {
         objects.get(11).scaleObject(0.5f,0.5f,0.5f);
         objects.get(11).translateObject(0f,6f,35f);
 
+        //lamp back kuning - kanan
+        objects.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f, 1f, 102/255f, 1.0f),
+                "resources/model/Ball/ball.obj"
+        ));
+        objects.get(12).translateObject(140f,70f,140f);
+        //lamp back kuning kiri
+        objects.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1f, 1f, 102/255f, 1.0f),
+                "resources/model/Ball/ball.obj"
+        ));
+        objects.get(13).translateObject(-140f,70f,140f);
 
 //        this.sk = new Skybox(
 //                Arrays.asList(
@@ -535,6 +557,7 @@ public class Main {
         }
 
 
+        //camera muter sendiri
         float movee = 1f;
         if (window.isKeyPressed(GLFW_KEY_M)){
             pressed = true;
@@ -557,6 +580,7 @@ public class Main {
             }
         }
 
+        //camera muterin object
         if (window.isKeyPressed(GLFW_KEY_B)){
             move = 1f;
             Vector3f pos = objects.get(10).model.transformPosition(new Vector3f());
