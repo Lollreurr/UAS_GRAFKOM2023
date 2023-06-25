@@ -38,6 +38,7 @@ public class Main {
 
     boolean pressed = false;
     Skybox sk;
+    int[] mode_light;
 
     public void run() throws IOException {
 
@@ -54,6 +55,7 @@ public class Main {
         GL.createCapabilities();
         camera.setPosition(0.7f, 7f, 50f + distance);
 
+        mode_light = new int[]{1,1,1};
 
         //Lamp
         objects.add(new Model(
@@ -599,6 +601,32 @@ public class Main {
             camera.setPosition(vertices.get((int)rotation).x,vertices.get((int)rotation).y, vertices.get((int)rotation).z );
         }
 
+        //light mode
+        if (window.isKeyPressed(GLFW_KEY_1) && !delay){
+            if(mode_light[0] == 0){
+                mode_light[0] = 1;
+            } else{
+                mode_light[0] = 0;
+            }
+            delay = true;
+        }
+        if (window.isKeyPressed(GLFW_KEY_2) && !delay){
+            if(mode_light[1] == 0){
+                mode_light[1] = 1;
+            } else{
+                mode_light[1] = 0;
+            }
+            delay = true;
+        }
+        if (window.isKeyPressed(GLFW_KEY_3) && !delay){
+            if(mode_light[2] == 0){
+                mode_light[2] = 1;
+            } else{
+                mode_light[2] = 0;
+            }
+            delay = true;
+        }
+
 //        if (window.isKeyPressed(GLFW_KEY_W)) {
 //            objects.get(0).translateObject(0.0f, move, 0.0f);
 //            Vector3f posObj = objects.get(0).model.transformPosition(new Vector3f());
@@ -852,11 +880,11 @@ public class Main {
 
             // code here
             for (Object object: objects) {
-                object.draw(camera, projection);
+                object.draw(camera, projection, mode_light);
             }
 
             for (Object object: objectGround) {
-                object.draw(camera, projection);
+                object.draw(camera, projection, mode_light);
             }
 
 //            sk.draw(camera, projection);

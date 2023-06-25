@@ -194,13 +194,13 @@ public class Square extends Object{
         ));
     }
 
-    public void drawObject(Camera camera, Projection projection) {
-        drawSetup(camera, projection);
+    public void drawObject(Camera camera, Projection projection, int[] mode_light) {
+        drawSetup(camera, projection, mode_light);
         // Draw the vertices
         //optional
         glDrawElements(GL_TRIANGLES, index.size(), GL_UNSIGNED_INT, 0);
         for (Object child: childObject){
-            child.draw(camera, projection);
+            child.draw(camera, projection, mode_light);
         }
     }
 
@@ -219,8 +219,8 @@ public class Square extends Object{
 //        uniformsmap.createUniform("lightPos", new Vector3f(1.0f, 1.0f, 1.0f));
     }
 
-    public void drawSetup(Camera camera, Projection projection) {
-        super.drawSetup(camera, projection);
+    public void drawSetup(Camera camera, Projection projection, int[] mode_light) {
+        super.drawSetup(camera, projection, mode_light);
         glEnableVertexAttribArray(1);
         glBindBuffer(GL_ARRAY_BUFFER, nbo);
         glVertexAttribPointer(1,

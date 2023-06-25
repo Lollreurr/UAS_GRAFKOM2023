@@ -102,7 +102,7 @@ public class Object extends ShaderProgram{
                 GL_STATIC_DRAW);
     }
 
-    public void drawSetup(Camera camera, Projection projection){
+    public void drawSetup(Camera camera, Projection projection, int[] mode_light){
         bind();
         uniformsMap.setUniform(
                 "uni_color", color);
@@ -153,28 +153,49 @@ public class Object extends ShaderProgram{
                 uniformsMap.setUniform("pointLight["+i+"].quadratic", 0.032f);
             }
             if (i >= 0 && i < 5){
-                uniformsMap.setUniform("pointLight["+i+"].ambient", new Vector3f(0.005f, 0.005f, 0.005f));
-                uniformsMap.setUniform("pointLight["+i+"].diffuse", new Vector3f(0.8f, 0.8f, 255/255f));
-                uniformsMap.setUniform("pointLight["+i+"].specular", new Vector3f(0.5f, 0.5f, 0.5f));
-                uniformsMap.setUniform("pointLight["+i+"].constant", 1.0f);
-                uniformsMap.setUniform("pointLight["+i+"].linear", 0.0014f);
-                uniformsMap.setUniform("pointLight["+i+"].quadratic", 0.000007f);
+                uniformsMap.setUniform("pointLight[" + i + "].ambient", new Vector3f(0.005f, 0.005f, 0.005f));
+                uniformsMap.setUniform("pointLight[" + i + "].diffuse", new Vector3f(0.8f, 0.8f, 255 / 255f));
+                uniformsMap.setUniform("pointLight[" + i + "].specular", new Vector3f(0.5f, 0.5f, 0.5f));
+                if (mode_light[0] == 1) {
+                    uniformsMap.setUniform("pointLight[" + i + "].constant", 1.0f);
+                    uniformsMap.setUniform("pointLight[" + i + "].linear", 0.0014f);
+                    uniformsMap.setUniform("pointLight[" + i + "].quadratic", 0.000007f);
+                }
+                else {
+                    uniformsMap.setUniform("pointLight[" + i + "].constant", 1.0f);
+                    uniformsMap.setUniform("pointLight[" + i + "].linear", 0.7f);
+                    uniformsMap.setUniform("pointLight[" + i + "].quadratic", 100f);
+                }
             }
             if (i >= 5 && i < 9){
                 uniformsMap.setUniform("pointLight["+i+"].ambient", new Vector3f(0.005f, 0.005f, 0.005f));
                 uniformsMap.setUniform("pointLight["+i+"].diffuse", new Vector3f(1f, 1f, 102/255f));
                 uniformsMap.setUniform("pointLight["+i+"].specular", new Vector3f(0.5f, 0.5f, 0.5f));
-                uniformsMap.setUniform("pointLight["+i+"].constant", 1.0f);
-                uniformsMap.setUniform("pointLight["+i+"].linear", 0.007f);
-                uniformsMap.setUniform("pointLight["+i+"].quadratic", 0.0002f);
+                if (mode_light[1] == 1) {
+                    uniformsMap.setUniform("pointLight["+i+"].constant", 1.0f);
+                    uniformsMap.setUniform("pointLight["+i+"].linear", 0.007f);
+                    uniformsMap.setUniform("pointLight["+i+"].quadratic", 0.0002f);
+                }
+                else {
+                    uniformsMap.setUniform("pointLight[" + i + "].constant", 1.0f);
+                    uniformsMap.setUniform("pointLight[" + i + "].linear", 0.7f);
+                    uniformsMap.setUniform("pointLight[" + i + "].quadratic", 100f);
+                }
             }
             if (i == 9){
                 uniformsMap.setUniform("pointLight["+i+"].ambient", new Vector3f(0.005f, 0.005f, 0.005f));
                 uniformsMap.setUniform("pointLight["+i+"].diffuse", new Vector3f(1f, 51/255f, 51/255f));
                 uniformsMap.setUniform("pointLight["+i+"].specular", new Vector3f(0.5f, 0.5f, 0.5f));
-                uniformsMap.setUniform("pointLight["+i+"].constant", 1.0f);
-                uniformsMap.setUniform("pointLight["+i+"].linear", 0.014f);
-                uniformsMap.setUniform("pointLight["+i+"].quadratic", 0.0007f);
+                if (mode_light[2] == 1) {
+                    uniformsMap.setUniform("pointLight["+i+"].constant", 1.0f);
+                    uniformsMap.setUniform("pointLight["+i+"].linear", 0.014f);
+                    uniformsMap.setUniform("pointLight["+i+"].quadratic", 0.0007f);
+                }
+                else {
+                    uniformsMap.setUniform("pointLight[" + i + "].constant", 1.0f);
+                    uniformsMap.setUniform("pointLight[" + i + "].linear", 0.7f);
+                    uniformsMap.setUniform("pointLight[" + i + "].quadratic", 100f);
+                }
             }
 
         }
@@ -203,8 +224,8 @@ public class Object extends ShaderProgram{
 
     }
 
-    public void draw(Camera camera, Projection projection){
-        drawSetup(camera, projection);
+    public void draw(Camera camera, Projection projection, int[] mode_light){
+        drawSetup(camera, projection, mode_light);
         // Draw the vertices
         //optional
         glLineWidth(10); //ketebalan garis
@@ -220,12 +241,12 @@ public class Object extends ShaderProgram{
                 0,
                 vertices.size());
         for(Object child:childObject){
-            child.draw(camera,projection);
+            child.draw(camera,projection,mode_light);
         }
     }
 
-    public void draw_ground(Camera camera, Projection projection){
-        drawSetup(camera, projection);
+    public void draw_ground(Camera camera, Projection projection, int[] mode_light){
+        drawSetup(camera, projection, mode_light);
         // Draw the vertices
         //optional
         glLineWidth(10); //ketebalan garis
@@ -241,7 +262,7 @@ public class Object extends ShaderProgram{
                 0,
                 vertices.size());
         for(Object child:childObject){
-            child.draw(camera,projection);
+            child.draw(camera,projection, mode_light);
         }
     }
 
@@ -275,8 +296,8 @@ public class Object extends ShaderProgram{
         }
     }
 
-    public void drawLine(Camera camera, Projection projection) {
-        drawSetup(camera, projection);
+    public void drawLine(Camera camera, Projection projection, int[] mode_light) {
+        drawSetup(camera, projection, mode_light);
         glDrawArrays(GL_LINE_LOOP, 0,
                 vertices.size());
     }

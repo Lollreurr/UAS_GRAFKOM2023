@@ -27,6 +27,7 @@ public class Test {
     boolean pressed = false;
     boolean pressed1 = false;
     float rotation = 0.0f;
+    int[] mode_light;
 
     public void init(){
         window.init();
@@ -145,11 +146,11 @@ public class Test {
             //code
 
             for(Object object: objects){
-                object.draw(camera, projection);
+                object.draw(camera, projection, mode_light);
             }
 
             for(Object object: object){
-                object.draw(camera, projection);
+                object.draw(camera, projection, mode_light);
             }
 
             // Restore state

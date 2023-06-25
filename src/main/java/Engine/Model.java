@@ -115,8 +115,8 @@ public class Model extends Object{
                 GL_STATIC_DRAW);
     }
 
-    public void drawSetup(Camera camera, Projection projection) {
-        super.drawSetup(camera, projection);
+    public void drawSetup(Camera camera, Projection projection, int[] mode_light) {
+        super.drawSetup(camera, projection, mode_light);
         glEnableVertexAttribArray(1);
         glBindBuffer(GL_ARRAY_BUFFER, nbo);
         glVertexAttribPointer(1,
