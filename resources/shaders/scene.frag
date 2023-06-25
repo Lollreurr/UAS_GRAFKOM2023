@@ -21,7 +21,7 @@ struct PointLight {
     vec3 diffuse;
     vec3 specular;
 };
-//tambah ligh
+//tambah light
 #define NR_POINT_LIGHTS 10
 uniform PointLight pointLight[NR_POINT_LIGHTS];
 

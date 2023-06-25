@@ -424,12 +424,7 @@ public class Main {
             window.getMouseInput().setScroll(new Vector2f());
         }
 
-//        temp = objects.get(0).getCenterPoint();
-        angle = angle % (float) Math.toRadians(360);
-        float move = 1f;
-        Vector3f temp = objects.get(0).getCenterPoint();
-        angle = angle % (float) Math.toRadians(360);
-
+        //ubah waktu menjadi malam atau pagi
         if (window.isKeyPressed(GLFW_KEY_L) && !delay2){
             malam = !malam;
             for (Object object: objects){
@@ -550,7 +545,7 @@ public class Main {
         }
 
 
-        // FPS trigger
+        // FPS triggering
         if (window.isKeyPressed(GLFW_KEY_F1) && !first_p){
             Vector3f pos = camera.getPosition();
             if (!first_p) {
@@ -582,7 +577,7 @@ public class Main {
         }
 
 
-        // TPS trigger
+        // TPS triggering
         if (window.isKeyPressed(GLFW_KEY_F2) && !third_p){
             Vector3f pos = camera.getPosition();
             if (!third_p) {
@@ -613,8 +608,7 @@ public class Main {
             setTPS();
         }
 
-
-        //homerun
+        //homerun animation
         if (window.isKeyPressed(GLFW_KEY_H)){
             press_homerun = true;
         }
@@ -643,7 +637,6 @@ public class Main {
             press_homerun = false;
             objects.get(11).translateObject(pos_ball.x,pos_ball.y,-pos_ball.z);
         }
-
 
 
     }
