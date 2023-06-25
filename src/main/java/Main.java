@@ -46,7 +46,7 @@ public class Main {
     float move_mario_run = 0f;
     float move_homerun = 0;
 
-    boolean third_p = false, first_p = false, cinema_t = false;
+    boolean third_p = false, first_p = false;
 
     public void run() throws IOException {
 
@@ -230,6 +230,7 @@ public class Main {
                 new Vector4f(192/255f, 192/255f, 192/255f, 1.0f),
                 "resources/model/marioOBJ/mario3.obj"
         ));
+        objects.get(7).translateObject(1.5f,0f,0f);
 
 
         //princess peach
@@ -410,22 +411,6 @@ public class Main {
 
         camera.setPosition(track.get((int)rotation).x, track.get((int)rotation).y, track.get((int)rotation).z);
     }
-
-//    public void updateTPS(){
-//        Vector3f pos = objects.get(7).model.transformPosition(new Vector3f());
-//
-//        ArrayList<Vector3f> track = new ArrayList<>(List.of());
-//
-//        for(double i=0;i<360;i+=360/360){
-//            float x = (float)(pos.x + 0.5f*Math.sin(Math.toRadians(i)));
-//            float z = (float)(pos.z + 0.5f*Math.cos(Math.toRadians(i)));
-//            track.add(new Vector3f(x, pos.y + 0.55f, z));
-//        }
-//
-//        System.out.println(((rotation + 180)%360));
-//        camera.setPosition(track.get((int)((rotation + 180)%360)).x, track.get((int)((rotation + 180)%360)).y,
-//                track.get((int)((rotation + 180)%360)).z);
-//    }
 
     public void input() {
 
@@ -632,18 +617,12 @@ public class Main {
         //homerun
         if (window.isKeyPressed(GLFW_KEY_H)){
             press_homerun = true;
-            setHomerun();
-            Vector3f posObj = objects.get(7).model.transformPosition(new Vector3f());
-            objects.get(7).translateObject(-posObj.x, -posObj.y, -posObj.z);
-            objects.get(7).rotateObject((float) Math.toRadians(1), 0f, 1f, 0f);
-            objects.get(7).translateObject(posObj.x, posObj.y, posObj.z);
-            setHomerun();
         }
         if (press_homerun){
             setHomerun();
             objects.get(11).translateObject(0f,0f,1f);
             move_homerun += 1f;
-            if (move_homerun >=40){
+            if (move_homerun >=45){
                 move_homerun = 0.0f;
                 press_mario_run = true;
             }
@@ -709,135 +688,6 @@ public class Main {
                 delay3 = false;
             }
 
-            //temp
-//            if (start){
-//                if (carPos < 900) {
-//                    objects.get(1).translateObject(0f, 0f, -0.007f);
-//                    carPos++;
-//                }
-//
-//                if (900 <= carPos && carPos < 990) {
-//                    List<Float> temp = objects.get(1).getCenterPoint();
-//                    objects.get(1).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-//                    objects.get(1).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
-//                    objects.get(1).translateObject(temp.get(0), temp.get(1), temp.get(2));
-//                }
-//
-//                if (900 <= carPos && carPos < 1250) {
-//                    objects.get(1).translateObject(0.007f, 0f, 0f);
-//                    carPos++;
-//                }
-//
-//                if (1250 <= carPos && carPos < 1340) {
-//                    List<Float> temp = objects.get(1).getCenterPoint();
-//                    objects.get(1).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-//                    objects.get(1).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
-//                    objects.get(1).translateObject(temp.get(0), temp.get(1), temp.get(2));
-//                }
-//
-//                if (1250 <= carPos && carPos < 2330) {
-//                    objects.get(1).translateObject(0f, 0f, 0.007f);
-//                    carPos++;
-//                }
-//
-//                if (2330 <= carPos && carPos < 2420) {
-//                    List<Float> temp = objects.get(1).getCenterPoint();
-//                    objects.get(1).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-//                    objects.get(1).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
-//                    objects.get(1).translateObject(temp.get(0), temp.get(1), temp.get(2));
-//                }
-//
-//                if (2330 <= carPos && carPos < 2680) {
-//                    objects.get(1).translateObject(-0.007f, 0f, 0f);
-//                    carPos++;
-//                }
-//
-//                if (2680 <= carPos && carPos < 2770) {
-//                    List<Float> temp = objects.get(1).getCenterPoint();
-//                    objects.get(1).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-//                    objects.get(1).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
-//                    objects.get(1).translateObject(temp.get(0), temp.get(1), temp.get(2));
-//                }
-//
-//                if (2680 <= carPos && carPos < 2860) {
-//                    objects.get(1).translateObject(0f, 0f, -0.007f);
-//                    carPos++;
-//                }
-//
-//                if (carPos == 2860) {
-//                    carPos = 0;
-//                }
-//            }
-//
-//            if (modeToggle > 0) {
-//                if (modeToggle == 1) {
-//                    List<Float> temp = objects.get(0).getCenterPoint();
-//                    camera.setPosition(temp.get(0), temp.get(1), temp.get(2));
-//                    camera.moveBackwards(distance);
-//                }
-//
-//                if (carPos2 < 660) {
-//                    objects.get(0).translateObject(0f, 0f, -0.01f);
-//                    carPos2++;
-//                }
-//
-//                if (660 <= carPos2 && carPos2 < 750) {
-//                    List<Float> temp = objects.get(0).getCenterPoint();
-//                    objects.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-//                    objects.get(0).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
-//                    objects.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-//                    angle = angle - (float) Math.toRadians(1f);
-//                }
-//
-//                if (660 <= carPos2 && carPos2 < 1000) {
-//                    objects.get(0).translateObject(0.01f, 0f, 0f);
-//                    carPos2++;
-//                }
-//
-//                if (1000 <= carPos2 && carPos2 < 1090) {
-//                    List<Float> temp = objects.get(0).getCenterPoint();
-//                    objects.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-//                    objects.get(0).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
-//                    objects.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-//                    angle = angle - (float) Math.toRadians(1f);
-//                }
-//
-//                if (1000 <= carPos2 && carPos2 < 1820) {
-//                    objects.get(0).translateObject(0f, 0f, 0.01f);
-//                    carPos2++;
-//                }
-//
-//                if (1820 <= carPos2 && carPos2 < 1910) {
-//                    List<Float> temp = objects.get(0).getCenterPoint();
-//                    objects.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-//                    objects.get(0).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
-//                    objects.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-//                    angle = angle - (float) Math.toRadians(1f);
-//                }
-//
-//                if (1820 <= carPos2 && carPos2 < 2160) {
-//                    objects.get(0).translateObject(-0.01f, 0f, 0f);
-//                    carPos2++;
-//                }
-//
-//                if (2160 <= carPos2 && carPos2 < 2250) {
-//                    List<Float> temp = objects.get(0).getCenterPoint();
-//                    objects.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-//                    objects.get(0).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
-//                    objects.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-//                    angle = angle - (float) Math.toRadians(1f);
-//                }
-//
-//                if (2160 <= carPos2 && carPos2 < 2320) {
-//                    objects.get(0).translateObject(0f, 0f, -0.01f);
-//                    carPos2++;
-//                }
-//
-//                if (carPos2 == 2320) {
-//                    carPos2 = 0;
-//                }
-//            }
-
             // code here
             for (Object object: objects) {
                 object.draw(camera, projection, mode_light);
@@ -846,8 +696,6 @@ public class Main {
             for (Object object: objectGround) {
                 object.draw(camera, projection, mode_light);
             }
-
-//            sk.draw(camera, projection);
 
             // Restore state
             glDisableVertexAttribArray(0);
