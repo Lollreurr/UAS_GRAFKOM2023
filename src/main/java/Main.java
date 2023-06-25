@@ -20,11 +20,6 @@ public class Main {
     private Window window = new Window(1080, 1080, "Hello World");
     ArrayList<Object> objects = new ArrayList<>();
     ArrayList<Object> objectGround = new ArrayList<>();
-    ArrayList<Object> objectTrack = new ArrayList<>();
-    ArrayList<Object> objectOuterWall = new ArrayList<>();
-    ArrayList<Object> objectFinishLine = new ArrayList<>();
-    ArrayList<Object> objectLighthouse = new ArrayList<>();
-    ArrayList<Object> objectPagar= new ArrayList<>();
     Camera camera = new Camera();
     Projection projection = new Projection(window.getWidth(), window.getHeight());
     float distance = 1f;
@@ -33,12 +28,8 @@ public class Main {
     float rotation1 = (float) Math.toRadians(1f);
     float move = 0.01f;
     List<Float> temp;
-    int carPos = 0;
-    int modeToggle = 0;
-    int carPos2 = 0;
     boolean delay = false;
     int delayCounter = 0;
-    boolean start = false;
     boolean malam = true;
     boolean delay2 = false;
     int delayCounter2 = 0;
@@ -46,7 +37,6 @@ public class Main {
     int delayCounter3 = 0;
 
     boolean pressed = false;
-    boolean pressed1 = false;
     Skybox sk;
 
     public void run() throws IOException {
@@ -869,25 +859,6 @@ public class Main {
                 object.draw(camera, projection);
             }
 
-            for (Object object: objectTrack){
-                object.draw(camera, projection);
-            }
-
-            for (Object object: objectOuterWall){
-                object.draw(camera, projection);
-            }
-
-            for (Object object: objectLighthouse){
-                object.draw(camera, projection);
-            }
-
-            for (Object object: objectPagar){
-                object.draw(camera, projection);
-            }
-
-            for (Object object: objectFinishLine){
-                object.draw(camera, projection);
-            }
 //            sk.draw(camera, projection);
 
             // Restore state
