@@ -40,6 +40,8 @@ public class Main {
     Skybox sk;
     int[] mode_light;
 
+    boolean third_p = false, first_p = false, cinema_t = false;
+
     public void run() throws IOException {
 
         init();
@@ -480,23 +482,7 @@ public class Main {
             delay2 = true;
         }
 
-
-
-//        if (window.isKeyPressed(GLFW_KEY_I)){
-//            camera.moveForward(move);
-//        }
-//        else if (window.isKeyPressed(GLFW_KEY_K)){
-//            camera.moveBackwards(move);
-//        }
-//
-//        if (window.isKeyPressed(GLFW_KEY_J)){
-//            camera.moveLeft(move);
-//        }
-//        else if (window.isKeyPressed(GLFW_KEY_L)) {
-//            camera.moveRight(move);
-//        }
-
-
+        //camera movement
         if (window.isKeyPressed(GLFW_KEY_W)){
             camera.moveForward(move);
         }
@@ -518,6 +504,8 @@ public class Main {
             camera.moveDown(move);
         }
 
+
+
         if (window.isKeyPressed(GLFW_KEY_LEFT)){
             objects.get(7).translateObject(-1f, 0.0f, 0.0f);
             setPos();
@@ -538,15 +526,15 @@ public class Main {
             setPos();
         }
 
-        if (window.isKeyPressed(GLFW_KEY_P)){
-            objects.get(7).translateObject(0.0f, 1f, 0.0f);
-            setPos();
-        }
-
-        if (window.isKeyPressed(GLFW_KEY_O)){
-            objects.get(7).translateObject(0.0f, -1f, 0.0f);
-            setPos();
-        }
+//        if (window.isKeyPressed(GLFW_KEY_P)){
+//            objects.get(7).translateObject(0.0f, 1f, 0.0f);
+//            setPos();
+//        }
+//
+//        if (window.isKeyPressed(GLFW_KEY_O)){
+//            objects.get(7).translateObject(0.0f, -1f, 0.0f);
+//            setPos();
+//        }
 
 
         //camera muter sendiri
@@ -626,6 +614,242 @@ public class Main {
             }
             delay = true;
         }
+
+
+        // FPS trigger
+//        if (window.isKeyPressed(GLFW_KEY_F1) && !FPS){
+//
+//            Vector3f pos = camera.getPosition();
+//
+//            if (cinematic) {
+//                for (int i=0;i<camRotation; i+=5){
+//                    camera.setPosition(-pos.x, -pos.y, -pos.z);
+//                    camera.addRotation(0f, (float) Math.toRadians(5));
+//                    camera.setPosition(pos.x, pos.y, pos.z);
+//                }
+//
+//                camera.setPosition(-pos.x, -pos.y, -pos.z);
+//                camera.addRotation(0f, (float) Math.toRadians(180));
+//                camera.setPosition(pos.x, pos.y, pos.z);
+//
+//                for (int i=0;i<rotation; i+=5){
+//                    camera.setPosition(-pos.x, -pos.y, -pos.z);
+//                    camera.addRotation(0f, (float) Math.toRadians(-5));
+//                    camera.setPosition(pos.x, pos.y, pos.z);
+//                }
+//            }
+//            else if (!FPS && !TPS){
+//                camera.setPosition(-pos.x, -pos.y, -pos.z);
+//                camera.setRotation(0f, (float) Math.toRadians(90));
+//                camera.setPosition(pos.x, pos.y, pos.z);
+//            }
+//
+//            FPS = true;
+//            TPS = false;
+//            cinematic = false;
+//
+//            updateFPS();
+//        }
+//
+//        // FPS CAMERA
+//        if (window.isKeyPressed(GLFW_KEY_LEFT) && FPS) {
+//            if (rotation <= 90 || rotation > 270) {
+//                Vector3f poss = objects.get(7).model.transformPosition(new Vector3f());
+//                for (Object object : objectAstronaut) {
+//                    Vector3f pos = object.model.transformPosition(new Vector3f());
+//                    object.translateObject(-pos.x, -pos.y, -pos.z);
+//                    object.rotateObject((float) Math.toRadians(5), 0f, -1f, 0f);
+//                    object.translateObject(pos.x, pos.y, pos.z);
+//                }
+//                rotation-=5;
+//                if (rotation > 355) {
+//                    rotation = 0;
+//                }
+//                if (rotation < 0) {
+//                    rotation = 355;
+//                }
+//                Vector3f pos = camera.getPosition();
+//                camera.setPosition(-pos.x, -pos.y, -pos.z);
+//                camera.addRotation(0f, (float) Math.toRadians(5));
+//                camera.setPosition(pos.x, pos.y, pos.z);
+//
+//            }
+//            else if (rotation < 270){
+//                for (Object object : objectAstronaut) {
+//                    Vector3f pos = object.model.transformPosition(new Vector3f());
+//                    object.translateObject(-pos.x, -pos.y, -pos.z);
+//                    object.rotateObject((float) Math.toRadians(5), 0f, 1f, 0f);
+//                    object.translateObject(pos.x, pos.y, pos.z);
+//                }
+//                rotation+=5;
+//                if (rotation > 355) {
+//                    rotation = 0;
+//                }
+//                if (rotation < 0) {
+//                    rotation = 355;
+//                }
+//                Vector3f pos = camera.getPosition();
+//                camera.setPosition(-pos.x, -pos.y, -pos.z);
+//                camera.addRotation(0f, (float) Math.toRadians(-5));
+//                camera.setPosition(pos.x, pos.y, pos.z);
+//            }
+////            if (!collision.get(2)) {
+////                hitboxPerson.get(0).translateObject(-0.005f, 0f, 0f);
+////                updateFPS();
+////                for (Object object: objectAstronaut){
+////                    object.translateObject(-0.005f, 0f, 0f);
+////                }
+////            }
+//
+//        }
+//
+//        if (window.isKeyPressed(GLFW_KEY_UP) && FPS) {
+//            if (rotation > 180) {
+//                for (Object object : objectAstronaut) {
+//                    Vector3f pos = object.model.transformPosition(new Vector3f());
+//                    object.translateObject(-pos.x, -pos.y, -pos.z);
+//                    object.rotateObject((float) Math.toRadians(5), 0f, -1f, 0f);
+//                    object.translateObject(pos.x, pos.y, pos.z);
+//                }
+//                rotation-=5;
+//                if (rotation > 355) {
+//                    rotation = 0;
+//                }
+//                if (rotation < 0) {
+//                    rotation = 355;
+//                }
+//                Vector3f pos = camera.getPosition();
+//                camera.setPosition(-pos.x, -pos.y, -pos.z);
+//                camera.addRotation(0f, (float) Math.toRadians(5));
+//                camera.setPosition(pos.x, pos.y, pos.z);
+//
+//            } else if (rotation < 180){
+//                for (Object object : objectAstronaut) {
+//                    Vector3f pos = object.model.transformPosition(new Vector3f());
+//                    object.translateObject(-pos.x, -pos.y, -pos.z);
+//                    object.rotateObject((float) Math.toRadians(5), 0f, 1f, 0f);
+//                    object.translateObject(pos.x, pos.y, pos.z);
+//                }
+//                rotation+=5;
+//                if (rotation > 355) {
+//                    rotation = 0;
+//                }
+//                if (rotation < 0) {
+//                    rotation = 355;
+//                }
+//                Vector3f pos = camera.getPosition();
+//                camera.setPosition(-pos.x, -pos.y, -pos.z);
+//                camera.addRotation(0f, (float) Math.toRadians(-5));
+//                camera.setPosition(pos.x, pos.y, pos.z);
+//            }
+//
+////            if (!collision.get(6)) {
+////                hitboxPerson.get(0).translateObject(0f, 0f, -0.005f);
+////                updateFPS();
+////                for (Object object: objectAstronaut){
+////                    object.translateObject(0f, 0f, -0.005f);
+////                }
+////            }
+//        }
+//
+//        if (window.isKeyPressed(GLFW_KEY_RIGHT) && FPS) {
+//            if (rotation >= 270 || rotation < 90) {
+//                for (Object object : objectAstronaut) {
+//                    Vector3f pos = object.model.transformPosition(new Vector3f());
+//                    object.translateObject(-pos.x, -pos.y, -pos.z);
+//                    object.rotateObject((float) Math.toRadians(5), 0f, 1f, 0f);
+//                    object.translateObject(pos.x, pos.y, pos.z);
+//                }
+//                rotation+=5;
+//                if (rotation > 355) {
+//                    rotation = 0;
+//                }
+//                if (rotation < 0) {
+//                    rotation = 355;
+//                }
+//                Vector3f pos = camera.getPosition();
+//                camera.setPosition(-pos.x, -pos.y, -pos.z);
+//                camera.addRotation(0f, (float) Math.toRadians(-5));
+//                camera.setPosition(pos.x, pos.y, pos.z);
+//            } else if (rotation > 90){
+//                for (Object object : objectAstronaut) {
+//                    Vector3f pos = object.model.transformPosition(new Vector3f());
+//                    object.translateObject(-pos.x, -pos.y, -pos.z);
+//                    object.rotateObject((float) Math.toRadians(5), 0f, -1f, 0f);
+//                    object.translateObject(pos.x, pos.y, pos.z);
+//                }
+//                rotation-=5;
+//                if (rotation > 355) {
+//                    rotation = 0;
+//                }
+//                if (rotation < 0) {
+//                    rotation = 355;
+//                }
+//                Vector3f pos = camera.getPosition();
+//                camera.setPosition(-pos.x, -pos.y, -pos.z);
+//                camera.addRotation(0f, (float) Math.toRadians(5));
+//                camera.setPosition(pos.x, pos.y, pos.z);
+//            }
+//
+////            if (!collision.get(1)) {
+////                hitboxPerson.get(0).translateObject(0.005f, 0f, 0f);
+////                updateFPS();
+////                for (Object object: objectAstronaut){
+////                    object.translateObject(0.005f, 0f, 0f);
+////                }
+////            }
+//        }
+//
+//
+//        if (window.isKeyPressed(GLFW_KEY_DOWN) && first_p) {
+//            if (rotation <= 180 && rotation !=0){
+//                for (Object object : objectAstronaut) {
+//                    Vector3f pos = object.model.transformPosition(new Vector3f());
+//                    object.translateObject(-pos.x, -pos.y, -pos.z);
+//                    object.rotateObject((float) Math.toRadians(5), 0f, -1f, 0f);
+//                    object.translateObject(pos.x, pos.y, pos.z);
+//                }
+//                rotation-=5;
+//                if (rotation > 355) {
+//                    rotation = 0;
+//                }
+//                if (rotation < 0) {
+//                    rotation = 355;
+//                }
+//                Vector3f pos = camera.getPosition();
+//                camera.setPosition(-pos.x, -pos.y, -pos.z);
+//                camera.addRotation(0f, (float) Math.toRadians(5));
+//                camera.setPosition(pos.x, pos.y, pos.z);
+//            }
+//            else if (rotation > 180){
+//                for (Object object : objects.get(7).getChildObject()) {
+//                    Vector3f pos = object.model.transformPosition(new Vector3f());
+//                    object.translateObject(-pos.x, -pos.y, -pos.z);
+//                    object.rotateObject((float) Math.toRadians(5), 0f, 1f, 0f);
+//                    object.translateObject(pos.x, pos.y, pos.z);
+//                }
+//                rotation+=5;
+//                if (rotation > 355) {
+//                    rotation = 0;
+//                }
+//                if (rotation < 0) {
+//                    rotation = 355;
+//                }
+//                Vector3f pos = camera.getPosition();
+//                camera.setPosition(-pos.x, -pos.y, -pos.z);
+//                camera.addRotation(0f, (float) Math.toRadians(-5));
+//                camera.setPosition(pos.x, pos.y, pos.z);
+//            }
+//
+////            if (!collision.get(5)) {
+////                hitboxPerson.get(0).translateObject(0f, 0f ,0.005f);
+////                updateFPS();
+////                for (Object object: objectAstronaut){
+////                    object.translateObject(0f, 0f, 0.005f);
+////                }
+////            }
+//        }
+        
 
 //        if (window.isKeyPressed(GLFW_KEY_W)) {
 //            objects.get(0).translateObject(0.0f, move, 0.0f);
